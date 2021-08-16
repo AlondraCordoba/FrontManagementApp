@@ -13,11 +13,7 @@ export class LoginComponent implements OnInit {
   constructor( private router: Router) { }
 
   goHome(){ this.router.navigate(['/home']);}
-  logIn(){
-    if(this.email == 'admin@arkus.com' && this.password=='pass1234'){
-      this.router.navigate(['/homeCollaborator'])
-    }
-  }
+  logIn(){ this.router.navigate(['/dashboardCollaborator']);}
 
   ngOnInit(): void {
   }

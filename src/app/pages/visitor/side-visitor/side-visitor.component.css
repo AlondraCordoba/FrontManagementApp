@@ -71,6 +71,10 @@ a:focus {
     padding: 20px;
     margin-top: 15%;
     border-bottom: 1px solid #444444;
+    text-align: center;
+}
+.mindLogo{
+    width: 150px;
 }
 #sidebar ul.components {
     padding: 20px 0;
@@ -130,8 +134,8 @@ a.article:hover {
     background: #444444 !important;
     color: #fff !important;
 }
-.nav-link>i{
-    margin-right: 3%;
+.nav-link>a>i{
+    margin-right: 5%;
     margin-left: 5%;
 }
 /* ---------------------------------------------------
