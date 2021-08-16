@@ -1,0 +1,41 @@
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+.wrapper{
+    width: 100vw;
+    height: 100%;
+}
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#content {
+    width: 99vw;
+    padding: 25px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    left: 0px;
+    bottom: 0px;
+    top: 10%;
+    right: 0;
+}
+.mindIconBackground{
+    position: absolute;
+    position: static;
+    width: 279px;
+    height: 274px;
+    right: 0;
+    bottom: 0;
+
+    background-image: url(../../../assets/images/mindIcon.png);
+    transform: rotate(20deg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}

@@ -1,0 +1,46 @@
+  <!-- Sidebar  -->
+  <nav id="sidebar">
+    <div id="dismiss">
+        <i class="fas fa-arrow-left"></i>
+    </div>
+
+    <div class="sidebar-header">
+        <h3>Angular 11</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+        <p>Angular Bootstrap Sidebar</p>
+        <li class="nav-link"> 
+            <a (click)="goHome()" type="button"> <i class="fas fa-home"></i> Home </a> 
+        </li>
+        <li class="nav-link">
+            <a (click)="goDashboard()" type="button"> <i class="fas fa-tachometer-alt"></i> Dashboard </a>
+        </li>
+        <li class="nav-link">
+            <a (click)="goIncome()" type="button"><i class="fas fa-user-plus"></i> Income </a> 
+        </li>
+        <li class="nav-link">
+            <a (click)="goInfoFilesIncomes()" type="button"><i class="fas fa-folder"></i> Files </a>
+        </li>
+        <li class="nav-link">
+            <a (click)="goTests()" type="button"><i class="fas fa-sign-in-alt"></i> Tests </a> 
+        </li>
+        <li class="nav-link">
+            <a (click)="goLogout()" type="button"><i class="fas fa-sign-in-alt"></i> Logout </a> 
+        </li>
+    </ul>
+    
+    </nav>
+
+    <div id="content">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btnSide">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+    </div>
+    <br><br><br><br>
+
+
+    <div class="overlay"></div>
+    

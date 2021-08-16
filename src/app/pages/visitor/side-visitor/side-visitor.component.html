@@ -1,0 +1,48 @@
+  <!-- Sidebar  -->
+  <nav id="sidebar">
+    <div id="dismiss">
+        <i class="fas fa-arrow-left"></i>
+    </div>
+
+    <div class="sidebar-header">
+        <h3>Angular 11</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+        <p>Angular Bootstrap Sidebar</p>
+        <li class="nav-link"> 
+            <!-- <a [routerLink]="['']"> <i class="fas fa-home"></i> Home </a> -->
+            <a (click)="goHome()" type="button"> <i class="fas fa-home"></i> Home </a> 
+        </li>
+        <li class="nav-link">
+            <!-- <a [routerLink]="['./dashboard']"> <i class="fas fa-tachometer-alt"></i> Dashboard </a> -->
+            <a (click)="goDashboard()" type="button"> <i class="fas fa-tachometer-alt"></i> Dashboard </a>
+        </li>
+        <li class="nav-link">
+            <!-- <a [routerLink]="['./detailsIncome']"> <i class="fas fa-user-plus"></i> Details Income </a> -->
+            <a (click)="goDetailsIncome()" type="button"><i class="fas fa-user-plus"></i> Details Income </a> 
+        </li>
+        <li class="nav-link">
+            <!-- <a [routerLink]="['./reports']"> <i class="fas fa-clipboard-list"></i> Reports </a> -->
+            <a (click)="goReports()" type="button"><i class="fas fa-clipboard-list"></i> Reports </a>
+        </li>
+        <li class="nav-link">
+            <!-- <a [routerLink]="['./login']"> <i class="fas fa-sign-in-alt"></i> Login </a> -->
+            <a (click)="goLogin()" type="button"><i class="fas fa-sign-in-alt"></i> Login </a> 
+        </li>
+    </ul>
+    
+    </nav>
+
+    <div id="content">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btnSide">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+    </div>
+    <br><br><br><br>
+
+
+    <div class="overlay"></div>
+    
