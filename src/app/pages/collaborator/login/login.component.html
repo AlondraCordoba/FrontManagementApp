@@ -1,10 +1,28 @@
 <!-- <p>login works!</p> -->
 <div class="bodyLogin">
     <div class="imgLogin">
-        <div class="containerLogin">
-            <div class="login p-3">
-
-            </div>
+    </div>
+    <div class="containerLogin">
+        <div class=" login p-3">
+            <div class="logo text-center mb-4">
+                <img src="../../../../assets/images/mindIcon.png"  class="mindIcon" alt="">
+              </div> 
+            <form class="mr-3 ml-3">
+                <div class="input-group flex-nowrap mb-3">
+                  <span class="input-group-text mb-2" id="addon-wrapping"><i class="fas fa-user"></i></span>
+                  <input type="email" class="form-control mb-2" placeholder="Email" aria-label="Username" aria-describedby="addon-wrapping" required [(ngModel)]="email"> 
+                </div>
+                <div class="input-group flex-nowrap mb-3">
+                    <span class="input-group-text mb-2" id="addon-wrapping"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control mb-2" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping" required [(ngModel)]="password">
+                  </div>
+                  <div class="text-center mt-3">
+                    <button class="btn btn-danger" type="submit" click="logIn()">Log in</button>
+                  </div>  
+                  <div class="text-center mt-3">
+                    <button class="btn btn-dark" type="button" click="goHome()">Home</button>
+                  </div>      
+              </form>
         </div>
     </div>
 </div>
