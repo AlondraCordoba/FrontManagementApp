@@ -1,11 +1,21 @@
 .btnSide{
     position: absolute;
-    background:rgb(228,48,59);
+    background: #533a9691;
     border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 5px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 .btnSide>i{
     color:#fff;
     font-size: 20px;
+}
+.nav-header{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 a,
 a:hover,
@@ -24,7 +34,7 @@ a:focus {
     top: 0;
     left: -250px;
     z-index: 999;
-    background:rgb(228,48,59);
+    background: linear-gradient(180deg, #212947 29.69%, #533A96 100%);
     color: #fff;
     transition: all 0.3s;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
@@ -38,7 +48,8 @@ a:focus {
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: #034781;
+    background: #0346817a;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     position: absolute;
     top: 10px;
@@ -49,7 +60,7 @@ a:focus {
     transition: all 0.3s;
 }
 #dismiss:hover {
-    background: #444444;
+    background: #034781;
     color: #fff;
 }
 .overlay {
@@ -108,17 +119,10 @@ ul.CTAs a {
     margin-right: 5%;
     margin-left: 5%;
 }
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
 #content {
-    width: 100%;
-    height: auto;
-    padding: 20px;
-    height: auto;
+    display: flex;
     transition: all 0.3s;
-    position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     background-color: transparent;
 }

@@ -1,18 +1,97 @@
-.line {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
-}
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@100;400;500;600;700;800&display=swap');
 #content {
-    width: 100%;
-    padding: 25px;
+    width: 100vw;
     min-height: 100vh;
     transition: all 0.3s;
     position: absolute;
+    /* background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px); */
+    left: 0px;
+    bottom: 0px;
     top: 10%;
     right: 0;
+}
+.banner1{
+    max-width: 100%;
+	height: auto;
+    left: 0; 
+	top: 0; 
+	position: fixed;
+}
+.mindIconBackground{
+    position: absolute;
+    position: static;
+    width: 279px;
+    height: 274px;
+    right: 0;
+    bottom: 0;
+
+    /* background-image: url(../../../assets/images/mindIcon.png);
+    transform: rotate(20deg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover; */
+}
+.infoMind{
+    align-items: center;
+    justify-content: center;
+}
+.mindLogo{
+    width: 150px;
+}
+.headerBanner{
+    display: flex;
+    height: 91vh;
+    max-height: 780px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    background-image: linear-gradient(180deg, rgba(33, 43, 53, 0.5), #212b35), url("../../../../assets/images/mindHome.jpg");
+    background-size: cover;
+    background-position:center;
+}
+.headmind{
+    display: flex;
+    font-family: 'Exo', sans-serif;
+    color: #f7f7f7;
+    margin-bottom: 0%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+    font-size: 45px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-top: 20px;
+    line-height: 1.2;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.subheadmind{
+    display: block;
+    font-family: 'Exo', sans-serif;
+    color: #f7f7f7;
+    font-size: 30px;
+    line-height: 45px;
+    margin-bottom: 40px;
+    font-weight: 300;
+    text-transform: none;
+    margin-top: 0;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.wrapper{
+    padding: 10px;
+    width: 100vw;
+    height: auto;
+    background: linear-gradient(180deg, #212947 29.69%, #533A96 100%);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
