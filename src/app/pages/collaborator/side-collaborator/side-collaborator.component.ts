@@ -16,7 +16,7 @@ export class SideCollaboratorComponent implements OnInit {
   goIncome(){ this.router.navigate(['/income']);}
   goTests(){ this.router.navigate(['/tests']);}
   goInfoFilesIncomes(){ this.router.navigate(['/infoFilesIncomes']);}
-  goLogout(){ this.router.navigate(['/login']);}
+  goLogout(){ this.router.navigate(['/home']);}
 
   ngOnInit(): void {
       //Toggle Click Function

@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@100;400;500;600;700;800&display=swap');
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Exo', sans-serif;
 }

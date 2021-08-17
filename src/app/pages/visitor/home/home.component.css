@@ -24,6 +24,13 @@
     top: 10%;
     right: 0;
 }
+.banner1{
+    max-width: 100%;
+	height: auto;
+    left: 0; 
+	top: 0; 
+	position: fixed;
+}
 .mindIconBackground{
     position: absolute;
     position: static;
@@ -32,10 +39,10 @@
     right: 0;
     bottom: 0;
 
-    background-image: url(../../../assets/images/mindIcon.png);
+    /* background-image: url(../../../assets/images/mindIcon.png);
     transform: rotate(20deg);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    background-size: cover;
+    background-size: cover; */
 }
