@@ -42,6 +42,6 @@
     height: 70px;
 }
 .btnHome{
-    background: #212947;
+    background: linear-gradient(180deg, #212947 29.69%, #533A96 100%);
     color: white;
 }
