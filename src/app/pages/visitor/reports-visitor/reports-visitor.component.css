@@ -98,7 +98,7 @@
     display: block;
 }
 .panel{
-    background: linear-gradient(to right, #297fb950, #2c3e50);
+    background: #2c3e50;
     padding: 0;
     border-radius: 6px;
     border: none;
