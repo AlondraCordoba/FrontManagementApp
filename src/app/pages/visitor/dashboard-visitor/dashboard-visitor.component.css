@@ -38,6 +38,7 @@
 }
 .headerBanner{
     display: flex;
+    width: 100vw;
     height: 20vh;
     max-height: 780px;
     padding-top: 100px;
