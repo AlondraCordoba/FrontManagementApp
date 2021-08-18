@@ -113,7 +113,7 @@
 }
 @media screen and (min-height: 300px) and (max-height: 600px) and (orientation: landscape){
     .headerBanner{
-        margin-top: 5% !important;
+        margin-top: 10% !important;
     }
     .infoMind{
         padding-right: 10px !important;
