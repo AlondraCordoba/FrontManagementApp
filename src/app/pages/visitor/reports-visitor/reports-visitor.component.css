@@ -98,7 +98,7 @@
     display: block;
 }
 .panel{
-    background: linear-gradient(to right, #297fb9b9, #2c3e50);
+    background: linear-gradient(to right, #297fb950, #2c3e50);
     padding: 0;
     border-radius: 6px;
     border: none;
@@ -109,16 +109,8 @@
     border-radius: 10px 10px 0 0;
     margin: 0;
 }
-.panel .panel-heading .title{
-    color: #fff;
-    font-size: 28px;
-    font-weight: 500;
-    text-transform: capitalize;
-    line-height: 40px;
-    margin: 0;
-}
 .panel .panel-heading .btn{
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.616);
     background: transparent;
     font-size: 16px;
     text-transform: capitalize;
@@ -141,16 +133,15 @@
     transition: all 0.3s ease 0s;
 }
 .panel .panel-heading .form-control:focus{
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.089);
     box-shadow: none;
     outline: none;
 }
 .panel .panel-heading .form-control::placeholder{
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.767);
     font-size: 15px;
     font-weight: 500;
 }
-.panel .panel-body{ padding: 0; }
 .panel .panel-body .table thead tr th{
     color: #fff;
     background-color: rgba(255, 255, 255, 0.2);
