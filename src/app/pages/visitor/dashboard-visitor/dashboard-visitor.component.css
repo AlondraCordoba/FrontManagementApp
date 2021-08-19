@@ -24,7 +24,7 @@
     left: 0; 
 	top: 0; 
 	position: fixed;
-}
+} 
 .mindIconBackground{
     position: absolute;
     position: static;
@@ -39,7 +39,7 @@
 .headerBanner{
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 20vh;
     max-height: 780px;
     padding-top: 100px;
     padding-bottom: 100px;
