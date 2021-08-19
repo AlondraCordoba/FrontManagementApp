@@ -123,9 +123,5 @@ ul.CTAs a {
     left: 0;
     background-color: transparent;
 }
-@media only screen and (min-width: 321px) and (max-width: 1024px) and (max-height: 699px) and (orientation:landscape){
-    #content{
-        margin-top: 3%;
-    }
-}
+
 
