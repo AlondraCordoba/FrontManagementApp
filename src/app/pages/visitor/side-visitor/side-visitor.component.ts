@@ -13,7 +13,7 @@ export class SideVisitorComponent implements OnInit {
 
   goHome(){ this.router.navigate(['/home']);}
   goDashboard(){ this.router.navigate(['/dashboard']);}
-  goDetailsIncome(){ this.router.navigate(['/detailsIncome']);}
+  goDetailsUsers(){ this.router.navigate(['/detailsUsers']);}
   goReports(){ this.router.navigate(['/reports']);}
   goLogin(){ this.router.navigate(['/login']);}
 

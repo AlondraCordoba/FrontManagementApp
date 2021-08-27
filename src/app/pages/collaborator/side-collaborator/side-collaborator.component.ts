@@ -11,11 +11,12 @@ export class SideCollaboratorComponent implements OnInit {
 
   constructor( private router: Router ) { }
 
-  goHome(){ this.router.navigate(['/homeCollaborator']);}
-  goDashboard(){ this.router.navigate(['/dashboardCollaborator']);}
-  goIncome(){ this.router.navigate(['/income']);}
+  goHomeC(){ this.router.navigate(['/homeCoordinator']);}
+  goDashboardC(){ this.router.navigate(['/dashboardCoordinator']);}
+  goUsers(){ this.router.navigate(['/users']);}
   goTests(){ this.router.navigate(['/tests']);}
-  goInfoFilesIncomes(){ this.router.navigate(['/infoFilesIncomes']);}
+  goInfoFilesUsers(){ this.router.navigate(['/infoFilesUsers']);}
+  goReportsC(){ this.router.navigate(['/reportsCoordinator']);}
   goLogout(){ this.router.navigate(['/home']);}
 
   ngOnInit(): void {

@@ -48,7 +48,7 @@
     justify-content: center;
     -webkit-box-align: center;
     align-items: center;
-    background-image: linear-gradient(180deg, rgba(33, 43, 53, 0.5), #212b35), url("../../../../assets/images/mindBanner.png");
+    background-image: linear-gradient(180deg, rgba(33, 43, 53, 0.5), #212b35), url("../../../../assets/images/reportBanner.jpg");
     background-size: cover;
     background-position:center;
 }

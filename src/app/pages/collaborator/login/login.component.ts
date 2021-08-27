@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   constructor( private router: Router) { }
 
   goHome(){ this.router.navigate(['/home']);}
-  logIn(){ this.router.navigate(['/dashboardCollaborator']);}
+  logIn(){ this.router.navigate(['/dashboardCoordinator']);}
 
   ngOnInit(): void {
   }
