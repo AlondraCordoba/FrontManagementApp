@@ -3,3 +3,7 @@
 body {
     font-family: 'Exo', sans-serif;
 } */
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@100;400;500;600;700;800&display=swap'); 
+*{
+    font-family: 'Exo', sans-serif;
+}

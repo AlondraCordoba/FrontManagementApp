@@ -71,6 +71,7 @@ a:focus {
     background: rgba(0, 0, 0, 0.7);
     z-index: 9999; 
     top: 0;
+    left: 0;
     opacity: 0;
     transition: all 0.5s ease-in-out;
 }
@@ -120,16 +121,11 @@ ul.CTAs a {
     margin-left: 5%;
 }
 #content {
-    display: flex;
-    width: 100vw;
+    width: 0 !important;
     transition: all 0.3s;
     top: 0;
-    position: sticky;
-    padding: 10px;
-    top: 0px;
     z-index: 9999; 
-    background: linear-gradient(180deg, #212947 29.69%, #533A96 100%);
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    background: transparent;
 }
 
 
