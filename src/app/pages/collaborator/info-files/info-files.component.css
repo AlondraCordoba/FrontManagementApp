@@ -122,4 +122,12 @@
         margin-inline-start: 2em;
         margin-inline-end: 2em;
     }
+    .alert{
+        margin-left: 10% !important; 
+        width: 80% !important;
+    }
+    .containerTable{
+        width: 95% !important;
+        margin-left: 2.5% !important;
+    }
 }

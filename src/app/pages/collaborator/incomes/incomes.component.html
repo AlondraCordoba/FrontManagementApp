@@ -31,7 +31,7 @@
       <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header headerAdd">
               <h5 class="modal-title" id="exampleModalLabel"><b>Add User</b></h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -55,7 +55,12 @@
                   <label for="englishLevelSelect" class="form-label">English Level</label>
                   <select class="form-select" id="englishLevelSelect" required>
                     <option selected disabled value="">Choose...</option>
-                    <option>...</option>
+                    <option value="A0">A0</option>
+                    <option value="A1-A2">A1-A2</option>
+                    <option value="A2-B1">A2-B1</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="C1-C2">C1-C2</option>
                   </select>
                 </div>
                 <div class="col-md-6">
@@ -69,14 +74,20 @@
                   <label for="venueSelect" class="form-label">Venue</label>
                   <select class="form-select" id="venueSelect" required>
                     <option selected disabled value="">Choose...</option>
-                    <option>...</option>
+                    <option value="Aguascalientes">Aguascalientes</option>
+                    <option value="Colima">Colima</option>
+                    <option value="Monterrey">Monterrey</option>
+                    <option value="Tijuana">Tijuana</option>
                   </select>
                 </div>
                 <div class="col-md-7">
                   <label for="originSelect" class="form-label">Origin</label>
                   <select class="form-select" id="originSelect" required>
                     <option selected disabled value="">Choose...</option>
-                    <option>...</option>
+                    <option value="Bootcamp">Bootcamp</option>
+                    <option value="Cambio en Produccion">Cambio en producción</option>
+                    <option value="Externo(Krunger)">Externo(Krunger)</option>
+                    <option value="Reclutamiento">Reclutamiento</option>
                   </select>
                 </div>
                 <div class="col-md-5">
@@ -122,11 +133,10 @@
                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" width="110" height="110" class="rounded-circle shadow" alt="">
                 <h5 class="mb-0 mt-5">Paul I. Bird</h5>
                 <p class="mb-3">Webdeveloper</p> 
-                <div class="list-inline contacts-social mt-3 mb-3"> <a href="" class="list-inline-item bg-facebook text-white border-0"><i class="fab fa-facebook-f"></i></a>
-                  <a href="" class="list-inline-item bg-twitter text-white border-0"><i class="fab fa-twitter"></i></a>
-                  <a href="" class="list-inline-item bg-linkedin text-white border-0"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <div class="d-grid"> <a href="#" class="btn btn-outline-primary radius-15">Contact Me</a>
+                <div class="containerButtons">
+                  <button type="button" class="btn btn-outline-primary rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#viewInfoUser"><i class="far fa-eye"></i></button>
+                  <button type="button" class="btn btn-outline-warning rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#editInfoUser"><i class="fas fa-edit"></i></button>
+                  <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteUser"><i class="fas fa-trash-alt"></i></button>
                 </div>
               </div>
             </div>
@@ -139,11 +149,10 @@
                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" width="110" height="110" class="rounded-circle shadow" alt="">
                 <h5 class="mb-0 mt-5">Ralph L. Alva</h5>
                 <p class="mb-3">UI Developer</p>
-                <div class="list-inline contacts-social mt-3 mb-3"> <a href="" class="list-inline-item bg-facebook text-white border-0"><i class="fab fa-facebook-f"></i></a>
-                  <a href="" class="list-inline-item bg-twitter text-white border-0"><i class="fab fa-twitter"></i></a>
-                  <a href="" class="list-inline-item bg-linkedin text-white border-0"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <div class="d-grid"> <a href="#" class="btn btn-outline-primary radius-15">Contact Me</a>
+                <div class="containerButtons">
+                  <button type="button" class="btn btn-outline-primary rounded-circle" style="margin-right: 5%"><i class="far fa-eye"></i></button>
+                  <button type="button" class="btn btn-outline-warning rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#editInfoUser"><i class="fas fa-edit"></i></button>
+                  <button type="button" class="btn btn-outline-danger rounded-circle"><i class="fas fa-trash-alt"></i></button>
                 </div>
               </div>
             </div>
@@ -156,11 +165,10 @@
                 <img src="https://bootdey.com/img/Content/avatar/avatar6.png" width="110" height="110" class="rounded-circle shadow" alt="">
                 <h5 class="mb-0 mt-5">John B. Smith</h5>
                 <p class="mb-3">Graphic Designer</p>
-                <div class="list-inline contacts-social mt-3 mb-3"> <a href="" class="list-inline-item bg-facebook text-white border-0"><i class="fab fa-facebook-f"></i></a>
-                  <a href="" class="list-inline-item bg-twitter text-white border-0"><i class="fab fa-twitter"></i></a>
-                  <a href="" class="list-inline-item bg-linkedin text-white border-0"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <div class="d-grid"> <a href="#" class="btn btn-outline-primary radius-15">Contact Me</a>
+                <div class="containerButtons">
+                  <button type="button" class="btn btn-outline-primary rounded-circle" style="margin-right: 5%"><i class="far fa-eye"></i></button>
+                  <button type="button" class="btn btn-outline-warning rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#editInfoUser"><i class="fas fa-edit"></i></button>
+                  <button type="button" class="btn btn-outline-danger rounded-circle"><i class="fas fa-trash-alt"></i></button>
                 </div>
               </div>
             </div>
@@ -173,19 +181,115 @@
                 <img src="https://bootdey.com/img/Content/avatar/avatar2.png" width="110" height="110" class="rounded-circle shadow" alt="">
                 <h5 class="mb-0 mt-5">David O. Buckley</h5>
                 <p class="mb-3">Android Developer</p>
-                <div class="list-inline contacts-social mt-3 mb-3"> <a href="" class="list-inline-item bg-facebook text-white border-0"><i class="fab fa-facebook-f"></i></a>
-                  <a href="" class="list-inline-item bg-twitter text-white border-0"><i class="fab fa-twitter"></i></a>
-                  <a href="" class="list-inline-item bg-linkedin text-white border-0"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <div class="d-grid"> <a href="#" class="btn btn-outline-primary radius-15">Contact Me</a>
+                <div class="containerButtons">
+                  <button type="button" class="btn btn-outline-primary rounded-circle" style="margin-right: 5%"><i class="far fa-eye"></i></button>
+                  <button type="button" class="btn btn-outline-warning rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#editInfoUser"><i class="fas fa-edit"></i></button>
+                  <button type="button" class="btn btn-outline-danger rounded-circle"><i class="fas fa-trash-alt"></i></button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      </div>  
-
+      </div>
+      <!-- Modals -->
+      <!-- View -->
+      <!-- Edit -->
+      <div class="modal fade" id="editInfoUser" tabindex="-1" aria-labelledby="editInfoUserLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-warning">
+              <h5 class="modal-title" id="exampleModalLabel"><b>Edit User</b></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form class="row g-3">
+                <div class="col-md-8">
+                  <label for="fullnameInput" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="fullnameInput" placeholder="Full Name" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="phoneInput" class="form-label">Phone</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="phoneInput" aria-describedby="inputGroupPrepend" placeholder="Phone Number" required>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <label for="emailnput" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="emailnput" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="englishLevelSelect" class="form-label">English Level</label>
+                  <select class="form-select" id="englishLevelSelect" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="A0">A0</option>
+                    <option value="A1-A2">A1-A2</option>
+                    <option value="A2-B1">A2-B1</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="C1-C2">C1-C2</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="citySelect" class="form-label">City</label>
+                  <select class="form-select" id="citySelect" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option>...</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="venueSelect" class="form-label">Venue</label>
+                  <select class="form-select" id="venueSelect" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="Aguascalientes">Aguascalientes</option>
+                    <option value="Colima">Colima</option>
+                    <option value="Monterrey">Monterrey</option>
+                    <option value="Tijuana">Tijuana</option>
+                  </select>
+                </div>
+                <div class="col-md-7">
+                  <label for="originSelect" class="form-label">Origin</label>
+                  <select class="form-select" id="originSelect" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="Bootcamp">Bootcamp</option>
+                    <option value="Cambio en Produccion">Cambio en producción</option>
+                    <option value="Externo(Krunger)">Externo(Krunger)</option>
+                    <option value="Reclutamiento">Reclutamiento</option>
+                  </select>
+                </div>
+                <div class="col-md-5">
+                  <label for="dateEntry" class="form-label">Date Entry</label>
+                  <input class="form-select" type="date" id="dateEntry">
+                </div>
+                <div class="col-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="checkMindU" required>
+                    <label class="form-check-label" for="checkMindU">Mind U.</label>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="checkMindT" required>
+                    <label class="form-check-label" for="checkMindT">Mind T.</label>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <label for="daysMindU" class="form-label">Days M.U</label>
+                  <input type="number" class="form-control" id="daysMindU" disabled>
+                </div>               
+                <div class="col-md-3">
+                  <label for="daysMindT" class="form-label">Days M.T</label>
+                  <input type="number" class="form-control" id="daysMindT" disabled>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-warning">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Delete -->
     </div>
 
       <br><br>
