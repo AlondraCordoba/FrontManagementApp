@@ -222,3 +222,8 @@
         text-align: center;
     }
 }
+@media only screen and (min-width: 200px) and (max-width: 280px) and (orientation:portrait){ 
+    .navbar-brand{
+        padding-left: 100%;
+    }
+}
