@@ -93,13 +93,9 @@
     display: block;
     width: 60%;
 }
-    .headerAdd{
-        background-color: rgb(176 208 254);
-    }
 .cardsDetails{
     margin-top: 5%;
 }
-
 .card {
     position: relative;
     display: flex;
@@ -115,6 +111,9 @@
 }
 .list-inline-item:not(:last-child) {
     margin-right: .5rem;
+}
+.headerView{
+    background-color: rgb(176 208 254);
 }
 
 @media only screen and (min-width: 321px) and (max-width: 1024px) and (max-height: 699px) and (orientation:landscape){
