@@ -4,6 +4,7 @@
     height: 100vh;
     background: linear-gradient(180deg, #212947 29.69%, #533A96 100%);
     mix-blend-mode: normal;
+    overflow: hidden;
 }
 .imgLogin{
     position: absolute;
@@ -17,6 +18,7 @@
     background-attachment: fixed;
     background-size: cover;
     opacity: 0.25;
+    overflow: hidden;
 }
 .containerLogin{
     display: flex;
