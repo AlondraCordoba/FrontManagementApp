@@ -7,17 +7,29 @@
             <div class="logo text-center mb-4">
                 <img src="../../../../assets/images/mindIcon.png"  class="mindIcon" alt="">
               </div> 
-            <form class="mr-3 ml-3">
+            <form class="mr-3 ml-3" [formGroup]="fGValid" (ngSubmit)="validateCredentials()">
                 <div class="input-group flex-nowrap mb-3">
-                  <span class="input-group-text mb-2" id="addon-wrapping"><i class="fas fa-user"></i></span>
-                  <input type="email" class="form-control mb-2" placeholder="Email" aria-label="Username" aria-describedby="addon-wrapping" required> 
+                  <span class="input-group-text mb-2 active" id="addon-wrapping"><i class="fas fa-user"></i></span>
+                  <input formControlName="email" type="email" class="form-control mb-2 validate" placeholder="Email" aria-label="Username" aria-describedby="addon-wrapping">
                 </div>
+
+                <div *ngIf="obtainFGValidator.email.errors && (obtainFGValidator.email.dirty || obtainFGValidator.email.touched)" class="validations">
+                  <strong *ngIf="obtainFGValidator.email.errors.required" class="mt-0">This field is required</strong>
+                  <strong *ngIf="obtainFGValidator.email.errors.email">Must comply with an email format</strong>
+                </div> 
+
                 <div class="input-group flex-nowrap mb-3">
                     <span class="input-group-text mb-2" id="addon-wrapping"><i class="fas fa-lock"></i></span>
-                    <input type="password" class="form-control mb-2" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping" required>
+                    <input formControlName="password" type="password" class="form-control mb-2 validate" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
                   </div>
+
+                  <div *ngIf="obtainFGValidator.password.errors && (obtainFGValidator.password.dirty || obtainFGValidator.password.touched)" class="validations">
+                    <strong *ngIf="obtainFGValidator.password.errors.required">This field is required</strong>
+                    <strong *ngIf="obtainFGValidator.password.errors.min">Must be at least 4 characters long</strong>
+                  </div> 
+
                   <div class="text-center mt-3">
-                    <button class="btn btn-danger" type="button" (click)="logIn()">Log in</button>
+                    <button [disabled]="obtainFGValidator.email.errors || obtainFGValidator.password.errors" class="btn btn-danger" type="submit">Log in</button>
                   </div>  
                   <div class="text-center mt-3">
                     <button class="btn btnHome" type="button" (click)="goHome()">Home</button>

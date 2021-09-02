@@ -1,16 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CoordinatorServiceService } from '../../../services/coordinatorService/coordinator-service.service';
 import * as $ from 'jquery';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-side-collaborator',
-  templateUrl: './side-collaborator.component.html',
-  styleUrls: ['./side-collaborator.component.css']
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.css']
 })
-export class SideCollaboratorComponent implements OnInit {
+export class SidebarComponent implements OnInit {
+  isLoggedIn: boolean = false;
 
-  constructor( private router: Router ) { }
-
+  constructor( private router: Router, private coordService: CoordinatorServiceService) { }
+// Visitor
+  goHome(){ this.router.navigate(['/home']);}
+  goDashboard(){ this.router.navigate(['/dashboard']);}
+  goDetailsUsers(){ this.router.navigate(['/detailsUsers']);}
+  goReports(){ this.router.navigate(['/reports']);}
+  goLogin(){ this.router.navigate(['/login']);}
+// Coordinator
   goHomeC(){ this.router.navigate(['/homeCoordinator']);}
   goDashboardC(){ this.router.navigate(['/dashboardCoordinator']);}
   goUsers(){ this.router.navigate(['/users']);}
@@ -19,7 +28,18 @@ export class SideCollaboratorComponent implements OnInit {
   goReportsC(){ this.router.navigate(['/reportsCoordinator']);}
   goLogout(){ this.router.navigate(['/home']);}
 
+  suscription: Subscription = new Subscription();
+
   ngOnInit(): void {
+    this.suscription = this.coordService.getDataSession().subscribe(
+      (data) => {
+        this.isLoggedIn = data.isLoggedIn;
+        console.log(data);
+      },
+      (error) =>{
+        console.log(error)
+      }
+    );
       //Toggle Click Function
       $(document).ready(function () {
         $('#dismiss, .overlay').on('click', function () {
@@ -33,6 +53,11 @@ export class SideCollaboratorComponent implements OnInit {
             $('a[aria-expanded=true]').attr('aria-expanded', 'false');
         });
         });
+  }
+  
+  logOut(){
+    this.coordService.logOut();
+    this.router.navigate(['/home']);
   }
 
 }

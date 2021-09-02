@@ -20,10 +20,9 @@ import { DashboardVisitorComponent } from './pages/visitor/dashboard-visitor/das
 import { DashboardCollaboratorComponent } from './pages/collaborator/dashboard-collaborator/dashboard-collaborator.component';
 import { TestsComponent } from './pages/collaborator/tests/tests.component';
 import { InfoFilesComponent } from './pages/collaborator/info-files/info-files.component';
-import { SideCollaboratorComponent } from './pages/collaborator/side-collaborator/side-collaborator.component';
-import { SideVisitorComponent } from './pages/visitor/side-visitor/side-visitor.component';
 import { HomeCollaboratorComponent } from './pages/collaborator/home-collaborator/home-collaborator.component';
 import { ReportsCollabComponent } from './pages/collaborator/reports-collab/reports-collab.component';
+import { SidebarComponent } from './pages/common/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [ 
@@ -37,10 +36,9 @@ import { ReportsCollabComponent } from './pages/collaborator/reports-collab/repo
     DashboardCollaboratorComponent,
     TestsComponent,
     InfoFilesComponent,
-    SideCollaboratorComponent,
-    SideVisitorComponent,
     HomeCollaboratorComponent,
-    ReportsCollabComponent
+    ReportsCollabComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

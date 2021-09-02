@@ -1,17 +1,16 @@
 .bodyLogin{
     position: relative;
-    width: 100vw;
-    height: 100vh;
     background: linear-gradient(180deg, #212947 29.69%, #533A96 100%);
+    background-size: cover;
     mix-blend-mode: normal;
     overflow: hidden;
 }
 .imgLogin{
     position: absolute;
-    width: 100vw;
-    height: 100vh;
     left: 0px;
     top: 0px;
+    width: 100vw;
+    height: 100vh;
     background: url(../../../../assets/images/backgroundLogin.png);
     background-position: center center;
     background-repeat: no-repeat;
@@ -24,14 +23,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 98vh;
+    min-height: 100vh;
 }
 .login{
     position: absolute;
     background: rgba(235, 235, 235, 0.5);
     border-radius: 54px;
     width: 300px;
-    height: 350px;
+    height: auto;
 }
 .formLogin{
     display: flex;
