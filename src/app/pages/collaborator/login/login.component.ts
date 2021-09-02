@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
   validateCredentials(){
     if (this.fGValid.invalid) {
-      alert ("Invalid from")
+      alert ("Invalid form")
     } else {
       alert("Validating ...");
       let email = this.obtainFGValidator.email.value;
