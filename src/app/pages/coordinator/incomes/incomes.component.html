@@ -84,35 +84,27 @@
                   <select class="form-select" id="originSelect" required>
                     <option selected disabled value="">Choose...</option>
                     <option value="Bootcamp">Bootcamp</option>
-                    <option value="Cambio en Produccion">Cambio en producción</option>
+                    <option value="Cambio_en_Produccion">Cambio en producción</option>
                     <option value="Externo(Krunger)">Externo(Krunger)</option>
                     <option value="Reclutamiento">Reclutamiento</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="typeMind" class="form-label">Mind</label>
+                  <select class="form-select" id="typeMind" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="Mind_University">Mind University</option>
+                    <option value="Mind_Teams">Mind Teams</option>
                   </select>
                 </div>
                 <div class="col-md-6">
                   <label for="dateEntry" class="form-label">Date Entry</label>
                   <input class="form-select" type="date" id="dateEntry">
                 </div>
-                <div class="col-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="true" id="checkMindU" name="flexRadioDefault">
-                    <label class="form-check-label" for="checkMindU">Mind U.</label>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" value="true" id="checkMindT" name="flexRadioDefault">
-                    <label class="form-check-label" for="checkMindT">Mind T.</label>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <label for="daysMindU" class="form-label">Days M.U</label>
-                  <input type="number" class="form-control" id="daysMindU" disabled>
+                <div class="col-md-6">
+                  <label for="daysMind" class="form-label">Days Mind</label>
+                  <input type="number" class="form-control" id="daysMind" disabled>
                 </div>               
-                <div class="col-md-3">
-                  <label for="daysMindT" class="form-label">Days M.T</label>
-                  <input type="number" class="form-control" id="daysMindT" disabled>
-                </div>
               </form>
             </div>
             <div class="modal-footer">
@@ -244,37 +236,28 @@
               <select class="form-select" id="originSelect" required>
                 <option selected disabled value="">Choose...</option>
                 <option value="Bootcamp">Bootcamp</option>
-                <option value="Cambio en Produccion">Cambio en producción</option>
+                <option value="Cambio_en_Produccion">Cambio en producción</option>
                 <option value="Externo(Krunger)">Externo(Krunger)</option>
                 <option value="Reclutamiento">Reclutamiento</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="typeMind" class="form-label">Mind</label>
+              <select class="form-select" id="typeMind" required>
+                <option selected disabled value="">Choose...</option>
+                <option value="Mind_University">Mind University</option>
+                <option value="Mind_Teams">Mind Teams</option>
               </select>
             </div>
             <div class="col-md-6">
               <label for="dateEntry" class="form-label">Date Entry</label>
               <input class="form-select" type="date" id="dateEntry">
             </div>
-            <div class="col-3">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkMindU" required>
-                <label class="form-check-label" for="checkMindU">Mind U.</label>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkMindT" required>
-                <label class="form-check-label" for="checkMindT">Mind T.</label>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <label for="daysMindU" class="form-label">Days M.U</label>
-              <input type="number" class="form-control" id="daysMindU" disabled>
+            <div class="col-md-6">
+              <label for="daysMind" class="form-label">Days Mind</label>
+              <input type="number" class="form-control" id="daysMind" disabled>
             </div>               
-            <div class="col-md-3">
-              <label for="daysMindT" class="form-label">Days M.T</label>
-              <input type="number" class="form-control" id="daysMindT" disabled>
-            </div>
           </form>
-        </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
           <button type="button" class="btn btn-outline-warning">Save changes</button>

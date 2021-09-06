@@ -127,5 +127,70 @@ ul.CTAs a {
     z-index: 9999; 
     background: transparent;
 }
-
+@media only screen and (min-width: 320px) and (max-width: 425px) and (max-height: 425px) and (orientation:portrait){ 
+    .btnSide{
+        height: 25px;
+        width: 25px;
+        margin-left: 15px;
+        padding: 0%;
+    }
+        .btnSide i {
+            font-size: 15px;
+        }
+        #sidebar {
+            width: 150px;
+        }
+        .mindLogo{
+            width: 80px !important;
+        }
+        #dismiss {
+            width: 25px;
+            height: 25px;
+            background-color: transparent;
+        }
+        #dismiss i{
+            font-size: 15px;
+            top: 0;
+        }
+        #sidebar ul li a {
+            padding: 10px;
+            font-size: .7em;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+        }
+}
+@media only screen and (min-width: 320px) and (max-width: 425px) and (max-height: 425px) and (orientation:landscape){ 
+    .btnSide{
+        height: 25px;
+        width: 25px;
+        margin-left: 15px;
+        padding: 0%;
+    }
+        .btnSide i {
+            font-size: 15px;
+        }
+        #sidebar {
+            width: 150px;
+        }
+        .mindLogo{
+            width: 90px;
+        }
+        #dismiss {
+            width: 25px;
+            height: 25px;
+            background-color: transparent;
+        }
+        #dismiss i{
+            font-size: 15px;
+            top: 0;
+        }
+        #sidebar ul li a {
+            padding: 10px;
+            font-size: .7em;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+        }
+}
 

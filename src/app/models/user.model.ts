@@ -9,12 +9,9 @@ export class UserModel {
     email: string | undefined;
     venue: string | undefined;
     origin_type: string | undefined;
-    mind_university?: boolean;
-    mind_teams?: boolean;
-    date_entry_mind_u?: string;
-    date_entry_mind_teams?: string;
-    days_mind_u?: number;
-    days_mind_t?: number;
+    type_mind?: string;
+    date_entry_mind?: string;
+    days_mind?: number;
     date_user: string | undefined;
     filess: FilesModel | undefined;
     tests: TestModel[] | undefined;

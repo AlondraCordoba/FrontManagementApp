@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   buildForm(){
     this.fGValid= this.fb.group({
       email: ['',[Validators.required, Validators.email]],
-      password: ['',[Validators.required, Validators.min(4)]]
+      password: ['',[Validators.required, Validators.minLength(8)]]
     });
   }
 

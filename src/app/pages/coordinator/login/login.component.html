@@ -20,12 +20,12 @@
 
                 <div class="input-group flex-nowrap mb-3">
                     <span class="input-group-text mb-2" id="addon-wrapping"><i class="fas fa-lock"></i></span>
-                    <input formControlName="password" type="password" class="form-control mb-2 validate" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping">
+                    <input formControlName="password" type="password" class="form-control mb-2 validate" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping" minlength="8">
                   </div>
 
                   <div *ngIf="obtainFGValidator.password.errors && (obtainFGValidator.password.dirty || obtainFGValidator.password.touched)" class="validations">
                     <strong *ngIf="obtainFGValidator.password.errors.required">This field is required</strong>
-                    <strong *ngIf="obtainFGValidator.password.errors.min">Must be at least 4 characters long</strong>
+                    <strong *ngIf="obtainFGValidator.password.errors.minlength">Must be at least 8 characters long</strong>
                   </div> 
 
                   <div class="text-center mt-3">
