@@ -10,6 +10,7 @@ import { UserServiceService } from '../../../services/userService/user-service.s
 export class DetailsIncomeComponent implements OnInit {
 
   usersList: UserModel[] = [];
+  page: number = 1;
 
   constructor(private userService: UserServiceService) { }
 
@@ -26,6 +27,10 @@ export class DetailsIncomeComponent implements OnInit {
         alert(`Error: ${error}`);
       }
     )
+  }
+
+  changePage(pg: number){
+    this.page = pg;
   }
 
 }

@@ -18,6 +18,10 @@
 	transition : all 0.3s ease-out;
     background: linear-gradient(180deg, #212947 29.69%, #533A96 100%);
 }
+.pagination{
+    text-align: center;
+    display: block;
+}
 .navbar{
 	padding: 0;
     padding-top: 8%;

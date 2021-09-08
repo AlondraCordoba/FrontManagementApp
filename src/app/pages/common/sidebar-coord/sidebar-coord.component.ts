@@ -5,11 +5,12 @@ import * as $ from 'jquery';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  selector: 'app-sidebar-coord',
+  templateUrl: './sidebar-coord.component.html',
+  styleUrls: ['./sidebar-coord.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarCoordComponent implements OnInit {
+
   isLoggedIn: boolean = false;
 
   constructor( private router: Router, private coordService: CoordinatorServiceService) { }
@@ -33,7 +34,6 @@ export class SidebarComponent implements OnInit {
     this.suscription = this.coordService.getDataSession().subscribe(
       (data) => {
         this.isLoggedIn = data.isLoggedIn;
-        console.log(data);
       },
       (error) =>{
         console.log(error)

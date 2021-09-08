@@ -5,11 +5,12 @@ import * as $ from 'jquery';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  selector: 'app-sidebar-visit',
+  templateUrl: './sidebar-visit.component.html',
+  styleUrls: ['./sidebar-visit.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarVisitComponent implements OnInit {
+
   isLoggedIn: boolean = false;
 
   constructor( private router: Router, private coordService: CoordinatorServiceService) { }

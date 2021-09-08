@@ -16,16 +16,17 @@
                 <div *ngIf="obtainFGValidator.email.errors && (obtainFGValidator.email.dirty || obtainFGValidator.email.touched)" class="validations">
                   <strong *ngIf="obtainFGValidator.email.errors.required" class="mt-0">This field is required</strong>
                   <strong *ngIf="obtainFGValidator.email.errors.email">Must comply with an email format</strong>
-                </div> 
+                </div>  
 
                 <div class="input-group flex-nowrap mb-3">
                     <span class="input-group-text mb-2" id="addon-wrapping"><i class="fas fa-lock"></i></span>
-                    <input formControlName="password" type="password" class="form-control mb-2 validate" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping" minlength="8">
+                    <input formControlName="password" type="password" class="form-control mb-2 validate" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping" minlength="8" maxlength="16">
                   </div>
 
                   <div *ngIf="obtainFGValidator.password.errors && (obtainFGValidator.password.dirty || obtainFGValidator.password.touched)" class="validations">
                     <strong *ngIf="obtainFGValidator.password.errors.required">This field is required</strong>
                     <strong *ngIf="obtainFGValidator.password.errors.minlength">Must be at least 8 characters long</strong>
+                    <strong *ngIf="obtainFGValidator.password.errors.maxLength">Must be maximum 16 characters</strong>
                   </div> 
 
                   <div class="text-center mt-3">

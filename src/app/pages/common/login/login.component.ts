@@ -22,15 +22,15 @@ export class LoginComponent implements OnInit {
   buildForm(){
     this.fGValid= this.fb.group({
       email: ['',[Validators.required, Validators.email]],
-      password: ['',[Validators.required, Validators.minLength(8)]]
+      password: ['',[Validators.required, Validators.minLength(8), Validators.maxLength(16)]]
     });
   }
-
-  goHome(){ this.router.navigate(['/home']);}
 
   ngOnInit(): void {
     this.buildForm();
   }
+
+  goHome(){ this.router.navigate(['/home']);}
 
   get obtainFGValidator(){
     return this.fGValid.controls;
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
           alert("Correct Data")
           console.log(data);
           this.coordService.storeDataSessioninLocal(data);
-          this.router.navigate(['/homeCoordinator']);
+          this.router.navigate(['/coordinator/homeCoordinator']);
         },
         (error) =>{
           alert("Invalid Data")

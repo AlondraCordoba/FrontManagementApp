@@ -36,8 +36,7 @@ export class UserServiceService {
       type_mind: userModel.type_mind,
       date_entry_mind: userModel.date_entry_mind,
       days_mind: userModel.days_mind,
-      date_user:userModel.date_user,
-      city_id: userModel.city_id
+      city: userModel.city,
     },
     {
       headers: new HttpHeaders({
@@ -58,7 +57,7 @@ export class UserServiceService {
       date_entry_mind: userModel.date_entry_mind,
       days_mind: userModel.days_mind,
       date_user:userModel.date_user,
-      city_id: userModel.city_id
+      city: userModel.city
     },
     {
       headers: new HttpHeaders({
@@ -77,3 +76,4 @@ export class UserServiceService {
   }
 
 }
+ 
