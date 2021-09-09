@@ -12,11 +12,13 @@ import { GeneralData } from 'src/app/config/generalData';
 export class IncomesComponent implements OnInit {
 
   usersList: UserModel[] = [];
+  userInfo: UserModel = new UserModel;
   id: any;
   page: number = 1;
   numUsersPage: number = GeneralData.numUsersforPage;
   fGValid: FormGroup = new FormGroup({});
   fGValidEdit: FormGroup = new FormGroup({});
+  fGValidDelete: FormGroup = new FormGroup({});
   today: number = Date.now();
 
   constructor(private userService: UserServiceService, private fb: FormBuilder) { }
@@ -32,7 +34,7 @@ export class IncomesComponent implements OnInit {
       english_level: ['', [Validators.required]],
       type_mind: ['', [Validators.required]],
       date_entry_mind: ['', [Validators.required]],
-      days_mind:[{value: '', disabled: true}]
+      // days_mind:[{value: '', disabled: true}]
     });
   }
 
@@ -48,7 +50,7 @@ export class IncomesComponent implements OnInit {
       english_level: ['', [Validators.required]],
       type_mind: ['', [Validators.required]],
       date_entry_mind: ['', [Validators.required]],
-      days_mind: ['', []],
+      days_mind: [{value: '', disabled: true}],
     });
   }
 
@@ -63,11 +65,10 @@ export class IncomesComponent implements OnInit {
   }
   get obtainFGValidatorEdit(){
     return this.fGValidEdit.controls;
-  }
+  } 
 
   getId (idUser?: number){
     this.id = idUser;
-    console.log(this.id)
     this.searchUser();
   }
 
@@ -96,7 +97,6 @@ export class IncomesComponent implements OnInit {
     let type_mind = this.obtainFGValidator.type_mind.value;
     let date_entry_mind = this.obtainFGValidator.date_entry_mind.value;
     let email = this.obtainFGValidator.email.value;
-    let days_mind = this.obtainFGValidator.days_mind.value;
 
     let userModel: UserModel = new UserModel();
     userModel.full_name = full_name;
@@ -107,7 +107,6 @@ export class IncomesComponent implements OnInit {
     userModel.english_level = english_level;
     userModel.type_mind = type_mind;
     userModel.email = email;
-    userModel.days_mind = days_mind;
     userModel.date_entry_mind = date_entry_mind;
 
     console.log(userModel);
@@ -137,7 +136,7 @@ export class IncomesComponent implements OnInit {
         this.obtainFGValidatorEdit.type_mind.setValue(data.type_mind);
         this.obtainFGValidatorEdit.date_entry_mind.setValue(data.date_entry_mind);
         this.obtainFGValidatorEdit.days_mind.setValue(data.days_mind);
-        console.log(data);
+        this.userInfo = data;
       },
       (error)=>{
         alert("User not found" + this.id)
@@ -185,7 +184,7 @@ export class IncomesComponent implements OnInit {
   }
 
   deleteUser(){
-    this.userService.editUser(this.id).subscribe(
+    this.userService.deleteUser(this.id).subscribe(
       (data) =>{
         alert("User successfully deleted"); 
         window.location.reload();

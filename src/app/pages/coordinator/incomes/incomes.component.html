@@ -125,10 +125,10 @@
                     <small *ngIf="obtainFGValidator.date_entry_mind.errors.required || obtainFGValidator.date_entry_mind.touched" class="mt-0">This field is required</small>
                  </div>
                 </div>
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                   <label for="days_mind" class="form-label">Days Mind</label>
                   <input type="number" class="form-control inputDays" id="days_mind" formControlName="days_mind">
-                </div>
+                </div> -->
                 <button type="submit" class="btn btn-outline-dark" 
                 [disabled]="obtainFGValidator.email.errors || obtainFGValidator.full_name.errors || obtainFGValidator.phone.errors || obtainFGValidator.city.errors || obtainFGValidator.venue.errors || obtainFGValidator.origin_type.errors || obtainFGValidator.english_level.errors || obtainFGValidator.type_mind.errors || obtainFGValidator.date_entry_mind.errors
                 " >Register</button>          
@@ -190,15 +190,15 @@
               <div class="card-body text-center">
                 <div class="p-4 border radius-15">
                   <img src="../../../../assets/images/usericon.png" width="110" height="110" class="rounded-circle shadow" alt="">
-                  <h5 class="mt-5 mb-3">Full Name</h5>
+                  <h5 class="mt-5 mb-3"><strong>{{userInfo.full_name}}</strong></h5>
                   <div class="dataUser" style="text-align: left;">
-                    <p class="mb-1">Email</p> 
-                    <p class="mb-1">Phone</p> 
-                    <p class="mb-1">City</p> 
-                    <p class="mb-1">English Level</p> 
-                    <p class="mb-1">Venue</p> 
-                    <p class="mb-1">Origin</p> 
-                    <p class="mb-1">Mind</p> 
+                    <strong class="mb-1">Email:</strong> <small>&nbsp;{{userInfo.email}}</small> <br>
+                    <strong class="mb-1">Phone: </strong> <small>&nbsp;{{userInfo.phone}}</small> <br>
+                    <strong class="mb-1">City: </strong> <small>&nbsp;{{userInfo.city}}</small> <br>
+                    <strong class="mb-1">English Level: </strong> <small>&nbsp;{{userInfo.english_level}}</small> <br>
+                    <strong class="mb-1">Venue: </strong> <small>&nbsp;{{userInfo.venue}}</small> <br>
+                    <strong class="mb-1">Origin: </strong> <small>&nbsp;{{userInfo.origin_type}}</small> <br>
+                    <strong class="mb-1">Mind: </strong> <small>&nbsp;{{userInfo.type_mind}}</small> <br>
                   </div>
                 </div>
               </div>
@@ -307,11 +307,15 @@
           <h5 class="modal-title text-white" id="exampleModalLabel"><b>Delete User</b></h5>
         </div>
         <div class="modal-body">
-          ¿Desea eliminar al usuario?
+          <form class="row g-3">
+            <div class="col-md-12">
+              ¿Do you want to delete the user with id: <strong>{{id}}</strong> ? 
+            </div>
+            <button type="submit" class="btn btn-outline-danger" (click)="deleteUser()">Delete</button>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-outline-danger" (click)="deleteUser()">Delete</button>
         </div>
       </div>
     </div>

@@ -122,9 +122,6 @@
 .validations{
    color: rgb(222,79,93);
 }
-.inputDays:disabled {
-    background: #ccc;
-}
 @media only screen and (min-width: 321px) and (max-width: 1024px) and (max-height: 699px) and (orientation:landscape){
     .navigation-wrap{
         height: 25vh;
