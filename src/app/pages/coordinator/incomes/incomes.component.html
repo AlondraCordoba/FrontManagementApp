@@ -146,7 +146,7 @@
     <div class="container">
 
       <div class="row row-cols-1 row-cols-lg-2 row-cols-md-3 row-cols-xl-4 cardsDetails">
-        <div class="col" *ngFor="let user of usersList | paginate: { itemsPerPage: 12, currentPage: page }">
+        <div class="col" *ngFor="let user of usersList | paginate: { itemsPerPage: numUsersPage, currentPage: page }">
           <div class="card radius-15">
             <div class="card-body text-center">
               <div class="p-4 border radius-15">
@@ -218,27 +218,29 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header bg-warning">
-          <h5 class="modal-title text-white" id="exampleModalLabel"><b>Add User</b></h5>
+          <h5 class="modal-title text-dark" id="exampleModalLabel"><b>Edit User</b></h5>
         </div>
         <div class="modal-body">
-          <form class="row g-3">
-            <div class="col-md-12">
-              <label for="fullnameInput" class="form-label">Full Name</label>
-              <input type="text" class="form-control" id="fullnameInput" placeholder="Full Name" required>
+          <form class="row g-3"  [formGroup]="fGValid" (ngSubmit)="editUser()">
+            <div class="col-md-4">
+              <label for="id" class="form-label">Id</label>
+              <p type="text" class="form-control" id="id" formControlName="id"> 0 </p>
             </div>
             <div class="col-md-12">
-              <label for="emailnput" class="form-label">Email</label>
-              <input type="email" class="form-control" id="emailnput" required>
+              <label for="full_name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="full_name" placeholder="Last Name   First Name" formControlName="full_name" minlength="8">
+            </div> 
+            <div class="col-md-12">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" formControlName="email" placeholder="user@example.com">
             </div>
             <div class="col-md-6">
-              <label for="phoneInput" class="form-label">Phone</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="phoneInput" aria-describedby="inputGroupPrepend" placeholder="Phone Number" required>
-              </div>
+              <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" id="phone" aria-describedby="inputGroupPrepend" placeholder="Phone Number" formControlName="phone">
             </div>
             <div class="col-md-6">
-              <label for="englishLevelSelect" class="form-label">English Level</label>
-              <select class="form-select" id="englishLevelSelect" required>
+              <label for="english_level" class="form-label">English Level</label>
+              <select class="form-select" id="english_level" formControlName="english_level">
                 <option selected disabled value="">Choose...</option>
                 <option value="A0">A0</option>
                 <option value="A1-A2">A1-A2</option>
@@ -247,17 +249,14 @@
                 <option value="B2">B2</option>
                 <option value="C1-C2">C1-C2</option>
               </select>
+            </div> 
+            <div class="col-md-6">
+              <label for="city" class="form-label">City</label>
+              <input type="text" class="form-control" id="city" aria-describedby="inputGroupPrepend" placeholder="City" formControlName="city">
             </div>
             <div class="col-md-6">
-              <label for="citySelect" class="form-label">City</label>
-              <select class="form-select" id="citySelect" required>
-                <option selected disabled value="">Choose...</option>
-                <option>...</option>
-              </select>
-            </div>
-            <div class="col-md-6">
-              <label for="venueSelect" class="form-label">Venue</label>
-              <select class="form-select" id="venueSelect" required>
+              <label for="venue" class="form-label">Venue</label>
+              <select class="form-select" id="venue" formControlName="venue">
                 <option selected disabled value="">Choose...</option>
                 <option value="Aguascalientes">Aguascalientes</option>
                 <option value="Colima">Colima</option>
@@ -266,39 +265,39 @@
               </select>
             </div>
             <div class="col-md-6">
-              <label for="originSelect" class="form-label">Origin</label>
-              <select class="form-select" id="originSelect" required>
+              <label for="origin_type" class="form-label">Origin</label>
+              <select class="form-select" id="origin_type"formControlName="origin_type">
                 <option selected disabled value="">Choose...</option>
                 <option value="Bootcamp">Bootcamp</option>
                 <option value="Cambio_en_Produccion">Cambio en producción</option>
                 <option value="Externo(Krunger)">Externo(Krunger)</option>
                 <option value="Reclutamiento">Reclutamiento</option>
               </select>
-            </div>
+            </div> 
             <div class="col-md-6">
-              <label for="typeMind" class="form-label">Mind</label>
-              <select class="form-select" id="typeMind" required>
+              <label for="type_mind" class="form-label">Mind</label>
+              <select class="form-select" id="type_mind" formControlName="type_mind">
                 <option selected disabled value="">Choose...</option>
                 <option value="Mind_University">Mind University</option>
                 <option value="Mind_Teams">Mind Teams</option>
               </select>
             </div>
             <div class="col-md-6">
-              <label for="dateEntry" class="form-label">Date Entry</label>
-              <input class="form-select" type="date" id="dateEntry">
+              <label for="date_entry_mind" class="form-label">Date Entry</label>
+              <input type="string" class="form-control" id="date_entry_mind" formControlName="date_entry_mind" placeholder="DD/MM/YYYY">
             </div>
             <div class="col-md-6">
-              <label for="daysMind" class="form-label">Days Mind</label>
-              <input type="number" class="form-control" id="daysMind" disabled>
-            </div>               
+              <label for="days_mind" class="form-label">Days Mind</label>
+              <input type="number" class="form-control" id="days_mind" formControlName="days_mind">
+            </div>     
+            <button type="submit" class="btn btn-outline-warning">Save changes</button>          
           </form>
+        </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-outline-warning">Save changes</button>
         </div>
       </div>
     </div>
-  </div>
   </div>
 
   <!--Delete-->

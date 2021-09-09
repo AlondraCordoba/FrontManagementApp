@@ -45,7 +45,7 @@ export class UserServiceService {
     });
   }
 
-  modifyUser(userModel: UserModel): Observable<any>{
+  editUser(userModel: UserModel): Observable<any>{
     return this.http.put<any>(`${this.url}/users/${userModel.id}`, {
       phone: userModel.phone,
       full_name: userModel.full_name,
