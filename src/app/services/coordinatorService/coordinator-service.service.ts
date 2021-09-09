@@ -70,5 +70,15 @@ export class CoordinatorServiceService {
       return "";
     }
   }
+
+  validateSessionToken():boolean{ 
+    let data = localStorage.getItem("session-data");
+    if(data){
+      let obj: CoordinatorModel = JSON.parse(data);
+      return true;
+    }else{
+      return false;
+    }
+  }
   
 }

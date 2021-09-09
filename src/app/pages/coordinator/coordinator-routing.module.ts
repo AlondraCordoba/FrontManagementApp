@@ -6,31 +6,38 @@ import { IncomesComponent } from './incomes/incomes.component';
 import { InfoFilesComponent } from './info-files/info-files.component';
 import { TestsComponent } from './tests/tests.component';
 import { ReportsCollabComponent } from './reports-collab/reports-collab.component';
+import { SessionValidatorGuard } from '../../guards/session-validator.guard';
 
 const routes: Routes = [
   {
     path: 'homeCoordinator',
     component: HomeCollaboratorComponent,
+    canActivate: [SessionValidatorGuard]
   },
   {
     path: 'dashboardCoordinator',
     component: DashboardCollaboratorComponent,
+    canActivate: [SessionValidatorGuard]
   },
   {
     path: 'users',
     component: IncomesComponent,
+    canActivate: [SessionValidatorGuard]
   },
   {
     path: 'infoFilesUsers',
     component: InfoFilesComponent,
+    canActivate: [SessionValidatorGuard]
   },
   {
     path: 'tests',
     component: TestsComponent,
+    canActivate: [SessionValidatorGuard]
   },
   {
     path: 'reportsCoordinator',
     component: ReportsCollabComponent,
+    canActivate: [SessionValidatorGuard]
   }
 ];
 
