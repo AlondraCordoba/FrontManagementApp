@@ -21,8 +21,8 @@ export class UserServiceService {
     return this.http.get<UserModel[]>(`${this.url}/users`);
   }
 
-  searchUser(id: number): Observable<UserModel[]>{
-    return this.http.get<UserModel[]>(`${this.url}/users/${id}`);
+  searchUser(id: number): Observable<UserModel>{
+    return this.http.get<UserModel>(`${this.url}/users/${id}`);
   }
  
   postUser(userModel: UserModel): Observable<any>{
@@ -66,8 +66,8 @@ export class UserServiceService {
     });
   }
 
-  deleteUser(userModel: UserModel): Observable<any>{
-    return this.http.delete<any>(`${this.url}/users/${userModel.id}`, 
+  deleteUser(id: number): Observable<any>{
+    return this.http.delete<any>(`${this.url}/users/${id}`, 
     {
       headers: new HttpHeaders({
         "Authorization": `Bearer ${this.token}` 

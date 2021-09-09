@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralData } from 'src/app/config/generalData';
 import { UserModel } from '../../../models/user.model';
 import { UserServiceService } from '../../../services/userService/user-service.service';
 
@@ -11,6 +12,7 @@ export class DetailsIncomeComponent implements OnInit {
 
   usersList: UserModel[] = [];
   page: number = 1;
+  numUsersPage: number = GeneralData.numUsersforPage;
 
   constructor(private userService: UserServiceService) { }
 

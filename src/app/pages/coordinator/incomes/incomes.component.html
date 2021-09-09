@@ -38,10 +38,9 @@
               <form class="row g-3"  [formGroup]="fGValid" (ngSubmit)="addUser()">
                 <div class="col-md-12">
                   <label for="full_name" class="form-label">Full Name</label>
-                  <input type="text" class="form-control" id="full_name" placeholder="Last Name   First Name" formControlName="full_name" minlength="8">
+                  <input type="text" class="form-control" id="full_name" placeholder="Last Name   First Name" formControlName="full_name">
                   <div *ngIf="obtainFGValidator.full_name.errors && (obtainFGValidator.full_name.dirty || obtainFGValidator.full_name.touched)" class="validations">
                     <small *ngIf="obtainFGValidator.full_name.errors.required" class="mt-0">This field is required</small>
-                    <small *ngIf="obtainFGValidator.full_name.errors.minlength && obtainFGValidator.full_name.touched">Must be at least 8 characters long</small>
                  </div>
                 </div> 
                 <div class="col-md-12">
@@ -121,15 +120,15 @@
                 </div>
                 <div class="col-md-6">
                   <label for="date_entry_mind" class="form-label">Date Entry</label>
-                  <input type="string" class="form-control" id="date_entry_mind" formControlName="date_entry_mind" placeholder="DD/MM/YYYY">
+                  <input type="string" class="form-control" id="date_entry_mind" formControlName="date_entry_mind">
                   <div *ngIf="obtainFGValidator.date_entry_mind.errors && (obtainFGValidator.date_entry_mind.dirty || obtainFGValidator.date_entry_mind.touched)" class="validations">
                     <small *ngIf="obtainFGValidator.date_entry_mind.errors.required || obtainFGValidator.date_entry_mind.touched" class="mt-0">This field is required</small>
                  </div>
                 </div>
                 <div class="col-md-6">
                   <label for="days_mind" class="form-label">Days Mind</label>
-                  <input type="number" class="form-control" id="days_mind" formControlName="days_mind">
-                </div>     
+                  <input type="number" class="form-control inputDays" id="days_mind" formControlName="days_mind">
+                </div>
                 <button type="submit" class="btn btn-outline-dark" 
                 [disabled]="obtainFGValidator.email.errors || obtainFGValidator.full_name.errors || obtainFGValidator.phone.errors || obtainFGValidator.city.errors || obtainFGValidator.venue.errors || obtainFGValidator.origin_type.errors || obtainFGValidator.english_level.errors || obtainFGValidator.type_mind.errors || obtainFGValidator.date_entry_mind.errors
                 " >Register</button>          
@@ -155,9 +154,9 @@
                 <h5 class="mb-0">{{user.full_name}}</h5>
                 <p class="mb-3">{{user.email}}</p>
                 <div class="containerButtons">
-                  <button type="button" class="btn btn-outline-primary rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#viewInfoUser"><i class="far fa-eye"></i></button>
-                  <button type="button" class="btn btn-outline-warning rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#editInfoUser"><i class="fas fa-edit"></i></button>
-                  <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteUser"><i class="fas fa-trash-alt"></i></button>
+                  <button type="button" class="btn btn-outline-primary rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#viewInfoUser" (click)="getId(user.id)"><i class="far fa-eye"></i></button>
+                  <button type="button" class="btn btn-outline-warning rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#editInfoUser" (click)="getId(user.id)"><i class="fas fa-edit"></i></button>
+                  <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteUser" (click)="getId(user.id)"><i class="fas fa-trash-alt"></i></button>
                 </div>
               </div>
             </div>
@@ -221,14 +220,14 @@
           <h5 class="modal-title text-dark" id="exampleModalLabel"><b>Edit User</b></h5>
         </div>
         <div class="modal-body">
-          <form class="row g-3"  [formGroup]="fGValid" (ngSubmit)="editUser()">
+          <form class="row g-3"  [formGroup]="fGValidEdit" (ngSubmit)="editUser()">
             <div class="col-md-4">
               <label for="id" class="form-label">Id</label>
-              <p type="text" class="form-control" id="id" formControlName="id"> 0 </p>
+              <input type="number" class="form-control" id="id" formControlName="id">
             </div>
             <div class="col-md-12">
               <label for="full_name" class="form-label">Full Name</label>
-              <input type="text" class="form-control" id="full_name" placeholder="Last Name   First Name" formControlName="full_name" minlength="8">
+              <input type="text" class="form-control" id="full_name" placeholder="Last Name   First Name" formControlName="full_name">
             </div> 
             <div class="col-md-12">
               <label for="email" class="form-label">Email</label>
@@ -312,7 +311,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-outline-danger">Delete</button>
+          <button type="button" class="btn btn-outline-danger" (click)="deleteUser()">Delete</button>
         </div>
       </div>
     </div>

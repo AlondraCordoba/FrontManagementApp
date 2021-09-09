@@ -27,7 +27,7 @@
     <div class="container">
       <div class="row row-cols-1 row-cols-lg-2 row-cols-md-3 row-cols-xl-4 cardsDetails">
 
-        <div class="col" *ngFor="let user of usersList | paginate: { itemsPerPage: 12, currentPage: page }">
+        <div class="col" *ngFor="let user of usersList | paginate: { itemsPerPage: numUsersPage, currentPage: page }">
           <div class="card radius-15">
             <div class="card-body text-center">
               <div class="p-4 border radius-15">
