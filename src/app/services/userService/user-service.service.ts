@@ -12,7 +12,7 @@ import { CoordinatorServiceService } from '../coordinatorService/coordinator-ser
 export class UserServiceService {
   url: String = GeneralData.url; 
   token?: String = "";
-
+ 
   constructor(private http: HttpClient, private coordService: CoordinatorServiceService) { 
     this.token = this.coordService.getToken();
   }

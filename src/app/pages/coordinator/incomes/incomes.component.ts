@@ -109,8 +109,6 @@ export class IncomesComponent implements OnInit {
     userModel.email = email;
     userModel.date_entry_mind = date_entry_mind;
 
-    console.log(userModel);
-
     this.userService.postUser(userModel).subscribe(
       (data) =>{
         alert("User inserted successfully"); 
@@ -169,8 +167,6 @@ export class IncomesComponent implements OnInit {
     userModel.email = email;
     userModel.days_mind = days_mind;
     userModel.date_entry_mind = date_entry_mind;
-
-    console.log(userModel);
 
     this.userService.editUser(userModel).subscribe(
       (data) =>{

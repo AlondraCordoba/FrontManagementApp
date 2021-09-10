@@ -10,12 +10,10 @@ const routes: Routes = [
   {
     path: '', 
     component: HomeComponent,
-    canActivate: [NoSessionValidatorGuard]
   },
   {
     path: 'home', 
     component: HomeComponent,
-    canActivate: [NoSessionValidatorGuard]
   },
   {
     path: 'login',
@@ -25,7 +23,7 @@ const routes: Routes = [
   {
     path: 'visitor',
     loadChildren: () => import('./pages/visitor/visitor.module').then(m => m.VisitorModule),
-    canActivate: [NoSessionValidatorGuard]
+    // canActivate: [NoSessionValidatorGuard]
   },
   {
     path: 'coordinator',

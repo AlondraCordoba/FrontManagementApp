@@ -9,22 +9,22 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardVisitorComponent,
-    canActivate: [NoSessionValidatorGuard]
+    // canActivate: [NoSessionValidatorGuard]
   },
   {
     path: 'detailsUsers',
     component: DetailsIncomeComponent,
-    canActivate: [NoSessionValidatorGuard]
+    // canActivate: [NoSessionValidatorGuard]
   },
   {
     path: 'reports',
     component: ReportsVisitorComponent,
-    canActivate: [NoSessionValidatorGuard]
+    // canActivate: [NoSessionValidatorGuard]
   },
   {
     path: 'dashboard',
     component: DashboardVisitorComponent,
-    canActivate: [NoSessionValidatorGuard]
+    // canActivate: [NoSessionValidatorGuard]
   }
 ];
 
