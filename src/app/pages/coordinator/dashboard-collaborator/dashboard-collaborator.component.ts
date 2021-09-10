@@ -102,8 +102,6 @@ export class DashboardCollaboratorComponent implements OnInit {
     vacancieModel.trial_Account = trial_Account;
     vacancieModel.description = description;
 
-    console.log(vacancieModel);
-
     this.vacancieService.postVacancie(vacancieModel).subscribe(
       (data) =>{
         alert("Vacancie inserted successfully"); 
@@ -147,8 +145,6 @@ export class DashboardCollaboratorComponent implements OnInit {
     vacancieModel.seniority = seniority;
     vacancieModel.trial_Account = trial_Account;
     vacancieModel.description = description;
-
-    console.log(vacancieModel);
 
     this.vacancieService.editVacancie(vacancieModel).subscribe(
       (data) =>{

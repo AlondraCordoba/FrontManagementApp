@@ -28,36 +28,49 @@
     </div>
 
 	<div class="addTestResult">
-		<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addTestResultModal">
+		<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#addTestResultModal">
 		  Add Test Result
 		</button>
 		<div class="modal fade" id="addTestResultModal" tabindex="-1" aria-labelledby="addTestResultModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 			<div class="modal-content">
-			  <div class="modal-header bg-primary">
+			  <div class="modal-header bg-dark">
 				<h5 class="modal-title text-white" id="exampleModalLabel"><b>Result Test</b></h5>
 			  </div>
 			  <div class="modal-body">
-				<form class="row g-3" >
+				<form class="row g-3" [formGroup]="fGValid" (ngSubmit)="addTestResult()">
 				  <div class="col-md-12">
 					<label for="user_id" class="form-label">User</label>
-					<select class="form-select" id="user_id">
-						<option selected disabled value="">Choose...</option>
-					  </select>
+					<select class="form-select" id="user_id" formControlName="user_id">
+						<option *ngFor="let user of usersList" [ngValue]="user.id">{{user.full_name}}</option>
+					</select> 
+					<div *ngIf="obtainFGValidator.user_id.errors && (obtainFGValidator.user_id.dirty || obtainFGValidator.user_id.touched)" class="validations">
+						<small *ngIf="obtainFGValidator.user_id.errors.required" class="mt-0">This field is required</small>
+					 </div>
 				  </div> 
 				  <div class="col-md-12">
 					<label for="technology" class="form-label">Technology</label>
-					  <input type="text" class="form-control" id="technology" aria-describedby="inputGroupPrepend" placeholder="Technology">
+					  <input type="text" class="form-control" id="technology" aria-describedby="inputGroupPrepend" placeholder="Technology" formControlName="technology">
+					  <div *ngIf="obtainFGValidator.technology.errors && (obtainFGValidator.technology.dirty || obtainFGValidator.technology.touched)" class="validations">
+						<small *ngIf="obtainFGValidator.technology.errors.required" class="mt-0">This field is required</small>
+					 </div>
 				  </div>
 				  <div class="col-md-6">
 					  <label for="score" class="form-label">Score</label>
-					  <input type="number" class="form-control" id="score" placeholder="score obtained">
+					  <input type="number" class="form-control" id="score" placeholder="score obtained" formControlName="score">
+					  <div *ngIf="obtainFGValidator.score.errors && (obtainFGValidator.score.dirty || obtainFGValidator.score.touched)" class="validations">
+						<small *ngIf="obtainFGValidator.score.errors.required" class="mt-0">This field is required</small>
+					 </div>
 					</div>
 				  <div class="col-md-6">
 					<label for="date" class="form-label">Date</label>
-					<input type="string" class="form-control" id="date" placeholder="YYYY/MM/DD">
+					<input type="string" class="form-control" id="date" placeholder="YYYY-MM-DD" formControlName="date">
+					<div *ngIf="obtainFGValidator.date.errors && (obtainFGValidator.date.dirty || obtainFGValidator.date.touched)" class="validations">
+						<small *ngIf="obtainFGValidator.date.errors.required" class="mt-0">This field is required</small>
+					 </div>
 				  </div>
-				  <button type="submit" class="btn btn-outline-primary">Register</button>     
+				  <button type="submit" class="btn btn-outline-dark"
+				  [disabled]="obtainFGValidator.user_id.errors || obtainFGValidator.technology.errors || obtainFGValidator.date.errors || obtainFGValidator.score.errors">Register</button>     
 				</form>
 			  </div>
 			  <div class="modal-footer">
@@ -73,30 +86,24 @@
 			<thead class="bg-primary text-white" style="position: sticky; top:0; z-index: 10;">
 			  <tr>
 				<th scope="col">ID</th>
-				<th scope="col">Full Name</th>
-				<th scope="col" class="text-center">Score</th>
+				<th scope="col" class="text-center">User ID</th>
 				<th scope="col" class="text-center">Technology</th>
+				<th scope="col" class="text-center">Score</th>
 				<th scope="col" class="text-center">Date</th>
-				<th scope="col" class="text-center">Actions</th>
+				<th scope="col" class="text-center"></th>
 			  </tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td class="text-center">
-						90
-					</td>
-					<td class="text-center">
-						Node JS
-					</td>
-					<td class="text-center">
-					    2021/09/09
-					</td>		
+				<tr *ngFor="let test of testListResults">
+					<th scope="row">{{test.id}}</th>
+					<td class="text-center">{{test.user_id}}</td>
+					<td class="text-center">{{test.technology}}</td>
+					<td class="text-center">{{test.score}}</td>
+					<td class="text-center">{{test.date}}</td>		
 					<td class="text-center">
 						<div class="containerButtons">
-							<button type="button" class="btn btn-outline-warning rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#editTestResult"><i class="fas fa-edit"></i></button>
-							<button type="button" class="btn btn-outline-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteTestResult"><i class="fas fa-trash-alt"></i></button>
+							<button type="button" class="btn btn-outline-warning rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#editTestResult" (click)="getId(test.id)"><i class="fas fa-edit"></i></button>
+							<button type="button" class="btn btn-outline-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteTestResult"(click)="getId(test.id)"><i class="fas fa-trash-alt"></i></button>
 						  </div>
 					</td>  
 				</tr>  
@@ -117,25 +124,31 @@
           <h5 class="modal-title text-dark" id="exampleModalLabel"><b>Edit</b></h5>
         </div>
         <div class="modal-body">
-			<form class="row g-3" >
+			<form class="row g-3" [formGroup]="fGValidEdit" (ngSubmit)="editTestResult()">
+				<div class="col-md-4">
+					<label for="id" class="form-label">Id</label>
+					<input type="number" class="form-control" id="id" formControlName="id">
+				  </div>
 				<div class="col-md-12">
 				  <label for="user_id" class="form-label">User</label>
-				  <input type="number" class="form-control" id="user_id" placeholder="User">
+				  <select class="form-select" id="user_id" formControlName="user_id">
+					  <option *ngFor="let user of usersList" [ngValue]="user.id" selected>{{user.full_name}}</option>
+				  </select> 
 				</div> 
 				<div class="col-md-12">
 				  <label for="technology" class="form-label">Technology</label>
-					<input type="text" class="form-control" id="technology" aria-describedby="inputGroupPrepend" placeholder="Technology">
+					<input type="text" class="form-control" id="technology" aria-describedby="inputGroupPrepend" placeholder="Technology" formControlName="technology">
 				</div>
 				<div class="col-md-6">
 					<label for="score" class="form-label">Score</label>
-					<input type="number" class="form-control" id="score" placeholder="score obtained">
+					<input type="number" class="form-control" id="score" placeholder="score obtained" formControlName="score">
 				  </div>
 				<div class="col-md-6">
 				  <label for="date" class="form-label">Date</label>
-				  <input type="string" class="form-control" id="date" placeholder="YYYY/MM/DD">
+				  <input type="string" class="form-control" id="date" placeholder="YYYY/MM/DD" formControlName="date">
 				</div>
-            <button type="submit" class="btn btn-outline-warning">Save changes</button>          
-          </form>
+				<button type="submit" class="btn btn-outline-warning">Save changes</button>     
+			  </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
@@ -154,9 +167,9 @@
         <div class="modal-body">
           <form class="row g-3">
             <div class="col-md-12">
-              ¿Do you want to delete the user result with id: <strong></strong> ? 
+              ¿Do you want to delete the user result with id: <strong>{{id}}</strong> ? 
             </div>
-            <button type="submit" class="btn btn-outline-danger">Delete</button>
+            <button type="submit" class="btn btn-outline-danger" (click)="deleteTestResult()">Delete</button>
           </form>
         </div>
         <div class="modal-footer">
