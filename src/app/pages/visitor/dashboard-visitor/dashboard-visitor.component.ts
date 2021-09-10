@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralData } from 'src/app/config/generalData';
+import { VacancieModel } from 'src/app/models/vacancie.model';
+import { VacancieServiceService } from '../../../services/vacancieService/vacancie-service.service';
+
 
 @Component({
   selector: 'app-dashboard-visitor',
@@ -7,9 +11,63 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardVisitorComponent implements OnInit {
 
-  constructor() { }
+  vacanciesList: VacancieModel[] = []; 
+  vacanciesCount: any; 
+  vacancieInfo: VacancieModel = new VacancieModel;
+  page: number = 1;
+  numUVacancPage: number = GeneralData.numVacanforPage;
+  id: any;
+
+  constructor(private vacancieService: VacancieServiceService) { }
 
   ngOnInit(): void {
+    this.getVacancies();
+    this.getVacanciesCount();
  }
+
+  getId (idVacancie?: number){
+    this.id = idVacancie;
+    this.searchVacancie();
+  }
+  
+  changePage(pg: number){
+    this.page = pg;
+  }
+  
+  getVacancies(){
+    this.vacancieService.getVacancies().subscribe(
+      (data) => {
+        this.vacanciesList = data;
+      },
+      (error) => {
+        alert(`Error: ${error}`);
+      }
+    )
+  }
+  
+  getVacanciesCount(){
+    this.vacancieService.getVacanciesCount().subscribe(
+      (data) => {
+        this.vacanciesCount = data;
+        console.log(data)
+      },
+      (error) => {
+        alert(`Error: ${error}`);
+      }
+    )
+  }
+  
+  searchVacancie(){
+    this.vacancieService.searchVacancie(this.id).subscribe(
+      (data)=>{
+  
+        this.vacancieInfo = data;
+      },
+      (error)=>{
+        alert("User not found" + this.id)
+      }
+    )
+  }
+
 
 }

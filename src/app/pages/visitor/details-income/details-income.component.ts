@@ -9,10 +9,12 @@ import { UserServiceService } from '../../../services/userService/user-service.s
   styleUrls: ['./details-income.component.css']
 })
 export class DetailsIncomeComponent implements OnInit {
-
+ 
   usersList: UserModel[] = [];
   page: number = 1;
   numUsersPage: number = GeneralData.numUsersforPage;
+  userInfo: UserModel = new UserModel;
+  id: any;
 
   constructor(private userService: UserServiceService) { }
 
@@ -34,5 +36,22 @@ export class DetailsIncomeComponent implements OnInit {
   changePage(pg: number){
     this.page = pg;
   }
+
+  getId (idUser?: number){
+    this.id = idUser;
+    this.searchUser();
+  }
+
+  searchUser(){
+    this.userService.searchUser(this.id).subscribe(
+      (data)=>{
+        this.userInfo = data;
+      },
+      (error)=>{
+        alert("User not found" + this.id)
+      }
+    )
+  }
+
 
 }

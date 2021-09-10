@@ -13,7 +13,6 @@ export class DashboardCollaboratorComponent implements OnInit {
 
   vacanciesList: VacancieModel[] = []; 
   vacanciesCount: any; 
-  count: any;
   vacancieInfo: VacancieModel = new VacancieModel;
   page: number = 1;
   numUVacancPage: number = GeneralData.numVacanforPage;
@@ -50,7 +49,6 @@ export class DashboardCollaboratorComponent implements OnInit {
     this.getVacanciesCount();
     this.buildForm();
     this.buildFormEdit();
-    this.getVacanciesCount();
   }
 
   get obtainFGValidator(){
@@ -64,7 +62,7 @@ export class DashboardCollaboratorComponent implements OnInit {
     this.id = idVacancie;
     this.searchVacancie();
   }
-
+ 
   getVacancies(){
     this.vacancieService.getVacancies().subscribe(
       (data) => {

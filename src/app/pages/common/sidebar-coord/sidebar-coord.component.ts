@@ -36,7 +36,6 @@ export class SidebarCoordComponent implements OnInit {
         this.isLoggedIn = data.isLoggedIn;
       },
       (error) =>{
-        console.log(error)
       }
     );
       //Toggle Click Function

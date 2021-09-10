@@ -34,10 +34,8 @@ export class SidebarVisitComponent implements OnInit {
     this.suscription = this.coordService.getDataSession().subscribe(
       (data) => {
         this.isLoggedIn = data.isLoggedIn;
-        console.log(data);
       },
       (error) =>{
-        console.log(error)
       }
     );
       //Toggle Click Function

@@ -33,7 +33,10 @@
               <div class="p-4 border radius-15">
                 <img src="../../../../assets/images/usericon.png" width="110" height="110" class="rounded-circle shadow" alt="">
                 <h5 class="mb-0 mt-4">{{user.full_name}}</h5>
-                <p class="mb-3">{{user.email}}</p>
+                <p class="mb-3">{{user.venue}}</p>
+                <div class="containerButtons"> 
+                  <button type="button" class="btn btn-outline-primary rounded-circle" data-bs-toggle="modal" data-bs-target="#viewInfoUser" (click)="getId(user.id)"><i class="far fa-eye"></i></button>
+                </div>
               </div>
             </div>
           </div>
@@ -53,3 +56,35 @@
       <br><br>
 
 </div>
+
+  <!-- View -->
+  <div class="modal fade" id="viewInfoUser" tabindex="-1" aria-labelledby="viewInfoUserLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <h5 class="modal-title text-white" id="exampleModalLabel"><b>User Details</b></h5>
+        </div>
+        <div class="modal-body">
+          <div class="col">
+            <div class="card radius-15">
+              <div class="card-body text-center">
+                <div class="p-4 border radius-15">
+                  <img src="../../../../assets/images/usericon.png" width="110" height="110" class="rounded-circle shadow" alt="">
+                  <h5 class="mt-5 mb-3"><strong>{{userInfo.full_name}}</strong></h5>
+                  <div class="dataUser" style="text-align: left;">
+                    <strong class="mb-1">City: </strong> <small>&nbsp;{{userInfo.city}}</small> <br>
+                    <strong class="mb-1">Venue: </strong> <small>&nbsp;{{userInfo.venue}}</small> <br>
+                    <strong class="mb-1">Origin: </strong> <small>&nbsp;{{userInfo.origin_type}}</small> <br>
+                    <strong class="mb-1">Mind: </strong> <small>&nbsp;{{userInfo.type_mind}}</small> <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
