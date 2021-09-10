@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
       let email = this.obtainFGValidator.email.value;
       let password = this.obtainFGValidator.password.value;
       let encryPassword = crypto.MD5(password).toString();
-      // console.log(`Email: ${email} and password: ${encryPassword}`)
 
       let model = new CoordinatorModel();
       model.email = email;
@@ -53,13 +52,11 @@ export class LoginComponent implements OnInit {
       this.coordService.loginCoordinator(model).subscribe(
         (data: CoordinatorModel) =>{
           alert("Correct Data")
-          console.log(data);
           this.coordService.storeDataSessioninLocal(data);
           this.router.navigate(['/coordinator/homeCoordinator']);
         },
         (error) =>{
-          alert("Invalid Data")
-          console.log(error);
+          alert("Invalid Data" + error)
         }
       )
     }

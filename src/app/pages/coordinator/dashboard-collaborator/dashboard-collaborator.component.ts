@@ -13,6 +13,7 @@ export class DashboardCollaboratorComponent implements OnInit {
 
   vacanciesList: VacancieModel[] = []; 
   vacanciesCount: any; 
+  count: any;
   vacancieInfo: VacancieModel = new VacancieModel;
   page: number = 1;
   numUVacancPage: number = GeneralData.numVacanforPage;
@@ -35,10 +36,12 @@ export class DashboardCollaboratorComponent implements OnInit {
 
   buildFormEdit(){
     this.fGValidEdit= this.fb.group({
+      id: [{value: '', disabled: true}],
       technology: ['',[Validators.required]],
       seniority: ['',[Validators.required]],
       trial_Account: ['',[Validators.required]],
       description: ['',[]],
+      date_vacancy: [{value: '', disabled: true}],
     });
   }
 
@@ -47,6 +50,7 @@ export class DashboardCollaboratorComponent implements OnInit {
     this.getVacanciesCount();
     this.buildForm();
     this.buildFormEdit();
+    this.getVacanciesCount();
   }
 
   get obtainFGValidator(){
@@ -76,6 +80,7 @@ export class DashboardCollaboratorComponent implements OnInit {
     this.vacancieService.getVacanciesCount().subscribe(
       (data) => {
         this.vacanciesCount = data;
+        console.log(data)
       },
       (error) => {
         alert(`Error: ${error}`);
@@ -120,6 +125,7 @@ export class DashboardCollaboratorComponent implements OnInit {
         this.obtainFGValidatorEdit.seniority.setValue(data.seniority);
         this.obtainFGValidatorEdit.trial_Account.setValue(data.trial_Account);
         this.obtainFGValidatorEdit.description.setValue(data.description);
+        this.obtainFGValidatorEdit.date_vacancy.setValue(data.date_vacancy);
         this.vacancieInfo = data;
       },
       (error)=>{
@@ -129,13 +135,17 @@ export class DashboardCollaboratorComponent implements OnInit {
   }
 
   editVacancie(){
-    let technology = this.obtainFGValidator.technology.value;
-    let seniority = this.obtainFGValidator.seniority.value;
-    let trial_Account = this.obtainFGValidator.trial_Account.value;
-    let description = this.obtainFGValidator.description.value;
+    let id = this.obtainFGValidatorEdit.id.value;
+    let technology = this.obtainFGValidatorEdit.technology.value;
+    let seniority = this.obtainFGValidatorEdit.seniority.value;
+    let trial_Account = this.obtainFGValidatorEdit.trial_Account.value;
+    let description = this.obtainFGValidatorEdit.description.value;
+    let date_vacancy = this.obtainFGValidatorEdit.date_vacancy.value;
 
     let vacancieModel: VacancieModel = new VacancieModel();
     vacancieModel.technology = technology;
+    vacancieModel.id = id;
+    vacancieModel.date_vacancy = date_vacancy;
     vacancieModel.seniority = seniority;
     vacancieModel.trial_Account = trial_Account;
     vacancieModel.description = description;
@@ -156,7 +166,7 @@ export class DashboardCollaboratorComponent implements OnInit {
   deleteVacancie(){
     this.vacancieService.deleteVacancie(this.id).subscribe(
       (data) =>{
-        alert("User successfully deleted"); 
+        alert("Vacancie successfully deleted"); 
         window.location.reload();
       },
       (err) =>{
@@ -164,5 +174,6 @@ export class DashboardCollaboratorComponent implements OnInit {
       }
     )
   }
+
 
 }

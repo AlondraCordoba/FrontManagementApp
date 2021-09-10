@@ -178,7 +178,7 @@ export class IncomesComponent implements OnInit {
       }
     )
   }
-
+ 
   deleteUser(){
     this.userService.deleteUser(this.id).subscribe(
       (data) =>{
@@ -192,4 +192,4 @@ export class IncomesComponent implements OnInit {
   }
 
 }
- 
+  

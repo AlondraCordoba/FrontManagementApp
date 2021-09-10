@@ -32,7 +32,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     Vacancies </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                             </div>
                             <div class="col-auto">
                             <i class="fas fa-briefcase fa-2x text-gray-300"></i>                            
@@ -161,9 +161,9 @@
                   <strong class="mb-1">Trial Account: </strong> <small>&nbsp;{{vacancie.trial_Account}}</small> <br>
                 </div>
                 <div class="containerButtons mt-3">
-                  <button type="button" class="btn btn-outline-primary rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#viewInfoVancan"><i class="far fa-eye"></i></button>
-                  <button type="button" class="btn btn-outline-warning rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#editVacanInfo"><i class="fas fa-edit"></i></button>
-                  <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteVacan"><i class="fas fa-trash-alt"></i></button>
+                  <button type="button" class="btn btn-outline-primary rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#viewInfoVancan"(click)="getId(vacancie.id)"><i class="far fa-eye"></i></button>
+                  <button type="button" class="btn btn-outline-warning rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#editVacanInfo"(click)="getId(vacancie.id)"><i class="fas fa-edit"></i></button>
+                  <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteVacan"(click)="getId(vacancie.id)"><i class="fas fa-trash-alt"></i></button>
                 </div>
               </div>
             </div>
@@ -192,7 +192,7 @@
             <div class="card radius-15">
               <div class="card-body text-center">
                 <div class="p-4 border radius-15">
-                  <h6 class="mt-5 mb-3"><strong>{{vacancieInfo.technology}}</strong></h6>
+                  <h6 class="mt-2 mb-3"><strong>{{vacancieInfo.technology}}</strong></h6>
                   <div class="dataUser" style="text-align: left;">
                     <strong class="mb-1">Seniority:</strong> <small>&nbsp;{{vacancieInfo.seniority}}</small> <br>
                     <strong class="mb-1">Trial Account: </strong> <small>&nbsp;{{vacancieInfo.trial_Account}}</small> <br>
@@ -219,6 +219,10 @@
         </div>
         <div class="modal-body">
           <form class="row g-3"  [formGroup]="fGValidEdit" (ngSubmit)="editVacancie()">
+            <div class="col-md-4">
+              <label for="id" class="form-label">Id</label>
+              <input type="number" class="form-control" id="id" formControlName="id">
+            </div>
             <div class="col-md-12">
             <label for="technology" class="form-label">Technology</label>
               <input type="text" class="form-control" id="technology" aria-describedby="inputGroupPrepend" placeholder="Technology" formControlName="technology">
@@ -247,8 +251,7 @@
                     <small *ngIf="obtainFGValidator.description.errors.required" class="mt-0">This field is required</small>
                  </div>
               </div>
-            <button type="submit" class="btn btn-outline-warning"
-            [disabled]="obtainFGValidator.technology.errors || obtainFGValidator.seniority.errors || obtainFGValidator.trial_Account.errors">Save changes</button>     
+            <button type="submit" class="btn btn-outline-warning">Save changes</button>     
           </form>
         </div>
         <div class="modal-footer">
@@ -276,4 +279,4 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> 

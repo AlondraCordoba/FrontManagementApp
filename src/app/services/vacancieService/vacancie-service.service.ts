@@ -28,12 +28,12 @@ export class VacancieServiceService {
     return this.http.get<any>(`${this.url}/vacancies/${id}`);
   }
  
-  postVacancie(VacancieModel: VacancieModel): Observable<any>{
+  postVacancie(vacancieModel: VacancieModel): Observable<any>{
     return this.http.post<any>(`${this.url}/vacancies`, {
-      technology: VacancieModel.technology,
-      seniority: VacancieModel.seniority,
-      trial_Account: VacancieModel.trial_Account,
-      description: VacancieModel.description
+      technology: vacancieModel.technology,
+      seniority: vacancieModel.seniority,
+      trial_Account: vacancieModel.trial_Account,
+      description: vacancieModel.description
     },
     {
       headers: new HttpHeaders({
@@ -42,12 +42,14 @@ export class VacancieServiceService {
     });
   }
 
-  editVacancie(VacancieModel: VacancieModel): Observable<any>{
-    return this.http.put<any>(`${this.url}/vacancies/${VacancieModel.id}`, {
-      technology: VacancieModel.technology,
-      seniority: VacancieModel.seniority,
-      trial_Account: VacancieModel.trial_Account,
-      description: VacancieModel.description,
+  editVacancie(vacancieModel: VacancieModel): Observable<any>{
+    return this.http.put<any>(`${this.url}/vacancies/${vacancieModel.id}`, {
+      id: vacancieModel.id,
+      technology: vacancieModel.technology,
+      seniority: vacancieModel.seniority,
+      trial_Account: vacancieModel.trial_Account,
+      description: vacancieModel.description,
+      date_vacancy: vacancieModel.date_vacancy
     },
     {
       headers: new HttpHeaders({
