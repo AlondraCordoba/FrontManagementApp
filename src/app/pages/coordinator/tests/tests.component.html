@@ -64,7 +64,7 @@
 					</div>
 				  <div class="col-md-6">
 					<label for="date" class="form-label">Date</label>
-					<input type="string" class="form-control" id="date" placeholder="YYYY-MM-DD" formControlName="date">
+					<input type="string" class="form-control" id="date" placeholder="YYYY-MM-DD" formControlName="date" maxlength="10">
 					<div *ngIf="obtainFGValidator.date.errors && (obtainFGValidator.date.dirty || obtainFGValidator.date.touched)" class="validations">
 						<small *ngIf="obtainFGValidator.date.errors.required" class="mt-0">This field is required</small>
 					 </div>

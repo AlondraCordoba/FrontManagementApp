@@ -22,7 +22,6 @@ export class DashboardVisitorComponent implements OnInit {
 
   ngOnInit(): void {
     this.getVacancies();
-    this.getVacanciesCount();
  }
 
   getId (idVacancie?: number){
@@ -38,18 +37,7 @@ export class DashboardVisitorComponent implements OnInit {
     this.vacancieService.getVacancies().subscribe(
       (data) => {
         this.vacanciesList = data;
-      },
-      (error) => {
-        alert(`Error: ${error}`);
-      }
-    )
-  }
-  
-  getVacanciesCount(){
-    this.vacancieService.getVacanciesCount().subscribe(
-      (data) => {
-        this.vacanciesCount = data;
-        console.log(data)
+        this.vacanciesCount = data.length;
       },
       (error) => {
         alert(`Error: ${error}`);

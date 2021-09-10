@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { GeneralData } from 'src/app/config/generalData';
 import { CoordinatorServiceService } from '../coordinatorService/coordinator-service.service';
 import { TestModel } from '../../models/tests.model';
+import { FilesModel } from '../../models/files.model';
 
 @Injectable({
   providedIn: 'root'

@@ -120,7 +120,7 @@
                 </div>
                 <div class="col-md-6">
                   <label for="date_entry_mind" class="form-label">Date Entry</label>
-                  <input type="string" class="form-control" id="date_entry_mind" formControlName="date_entry_mind" placeholder="YYYY-MM-DD">
+                  <input type="string" class="form-control" id="date_entry_mind" formControlName="date_entry_mind" placeholder="YYYY-MM-DD" maxlength="10">
                   <div *ngIf="obtainFGValidator.date_entry_mind.errors && (obtainFGValidator.date_entry_mind.dirty || obtainFGValidator.date_entry_mind.touched)" class="validations">
                     <small *ngIf="obtainFGValidator.date_entry_mind.errors.required || obtainFGValidator.date_entry_mind.touched" class="mt-0">This field is required</small>
                  </div>
