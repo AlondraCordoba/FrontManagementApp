@@ -18,8 +18,12 @@ export class ReportsVisitorComponent implements OnInit {
 
   filterName(){
     let docDefinition = {  
-      header: 'Name',  
-      content: 'Sample PDF generated with Angular and PDFMake for C#Corner Blog',
+      content: [
+        {  
+          text: 'Name',  
+          style: 'sectionHeader'  
+      }, 
+      ]
     };  
   
     pdfMake.createPdf(docDefinition).open();  
@@ -27,8 +31,12 @@ export class ReportsVisitorComponent implements OnInit {
 
   filterDate(){
     let docDefinition = {  
-      header: 'Date',  
-      content: 'Sample PDF generated with Angular and PDFMake for C#Corner Blog',
+      content: [
+        {  
+          text: 'Date',  
+          style: 'sectionHeader'  
+      }, 
+      ]
     };  
   
     pdfMake.createPdf(docDefinition).open();  
@@ -36,19 +44,27 @@ export class ReportsVisitorComponent implements OnInit {
 
   filterMindU(){
     let docDefinition = {  
-      header: 'Mind University',  
-      content: 'Sample PDF generated with Angular and PDFMake for C#Corner Blog',
+      content: [
+        {  
+          text: 'Mind University',  
+          style: 'sectionHeader'  
+      }, 
+      ]
     };  
-  
+
     pdfMake.createPdf(docDefinition).open();  
   }
 
   filterMindT(){
     let docDefinition = {  
-      header: 'Mind Teams',  
-      content: 'Sample PDF generated with Angular and PDFMake for C#Corner Blog',
+      content: [
+        {  
+          text: 'Mind Teams',  
+          style: 'sectionHeader'  
+      }, 
+      ]
     };  
-  
+
     pdfMake.createPdf(docDefinition).open();  
   }
 
