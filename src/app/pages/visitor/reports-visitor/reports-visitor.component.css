@@ -22,7 +22,7 @@
 	padding: 0;
     padding-top: 8%;
 }
-    .navButton{
+    .nav.btn{
         justify-content: left !important;
     }
         .navImg{
@@ -80,6 +80,50 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+.btn {
+    padding: 12px 16px;
+    vertical-align: middle;
+    user-select: none;
+    line-height: 1.5;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+}
+    .btn:hover{
+        opacity: 1;
+    }
+        .btn.btn-outline {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-color: #8bbabb;
+            color: #000;
+            background: transparent;
+        }
+            .btn.btn-round {
+                border-radius: 40px;
+            }
+                .btn-block {
+                    display: block;
+                    width: 100%;
+                }
+                    .btn:after {
+                        content: '»';
+                        position: absolute;
+                        opacity: 0;  
+                        top: 14px;
+                        right: -20px;
+                        transition: 0.5s;
+                    }
+                        .btn:hover{
+                            padding-right: 24px;
+                            padding-left:8px;
+                        }
+                            .btn:hover:after {
+                                opacity: 1;
+                                right: 10px;
+                            }
 @media only screen and (min-width: 321px) and (max-width: 1024px) and (max-height: 699px) and (orientation:landscape){
     .navigation-wrap{
         height: 25vh;

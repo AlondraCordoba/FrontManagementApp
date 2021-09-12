@@ -79,6 +79,7 @@
                   <input type="text" class="form-control" id="city" aria-describedby="inputGroupPrepend" placeholder="City" formControlName="city">
                     <div *ngIf="obtainFGValidator.city.errors && (obtainFGValidator.city.dirty || obtainFGValidator.city.touched)" class="validations">
                     <small *ngIf="obtainFGValidator.city.errors.required || obtainFGValidator.city.touched" class="mt-0">This field is required</small>
+                    <small *ngIf="obtainFGValidator.city.errors.pattern" class="mt-0">Must be just letters</small>
                  </div>
                 </div>
                 <div class="col-md-6">
@@ -228,14 +229,25 @@
             <div class="col-md-12">
               <label for="full_name" class="form-label">Full Name</label>
               <input type="text" class="form-control" id="full_name" placeholder="Last Name   First Name" formControlName="full_name">
+              <div *ngIf="obtainFGValidatorEdit.full_name.errors && (obtainFGValidatorEdit.full_name.dirty || obtainFGValidatorEdit.full_name.touched)" class="validations">
+                <small *ngIf="obtainFGValidatorEdit.full_name.errors.required" class="mt-0">This field is required</small>
+             </div>
             </div> 
             <div class="col-md-12">
               <label for="email" class="form-label">Email</label>
               <input type="email" class="form-control" id="email" formControlName="email" placeholder="user@example.com">
+              <div *ngIf="obtainFGValidatorEdit.email.errors && (obtainFGValidatorEdit.email.dirty || obtainFGValidatorEdit.email.touched)" class="validations">
+                <small *ngIf="obtainFGValidatorEdit.email.errors.required" class="mt-0">This field is required</small>
+                <small *ngIf="obtainFGValidatorEdit.email.errors.email">Must comply with an email format</small>
+              </div> 
             </div>
             <div class="col-md-6">
               <label for="phone" class="form-label">Phone</label>
                 <input type="text" class="form-control" id="phone" aria-describedby="inputGroupPrepend" placeholder="Phone Number" formControlName="phone">
+                <div *ngIf="obtainFGValidatorEdit.phone.errors && (obtainFGValidatorEdit.phone.dirty || obtainFGValidatorEdit.phone.touched)" class="validations">
+                  <small *ngIf="obtainFGValidatorEdit.phone.errors.required" class="mt-0">This field is required</small>
+                  <small *ngIf="obtainFGValidatorEdit.phone.errors.pattern">Must be just numbers</small>
+               </div>
             </div>
             <div class="col-md-6">
               <label for="english_level" class="form-label">English Level</label>
@@ -248,10 +260,17 @@
                 <option value="B2">B2</option>
                 <option value="C1-C2">C1-C2</option>
               </select>
+              <div *ngIf="obtainFGValidatorEdit.english_level.errors && (obtainFGValidatorEdit.english_level.dirty || obtainFGValidatorEdit.english_level.touched)" class="validations">
+                <small *ngIf="obtainFGValidatorEdit.english_level.errors.touched" class="mt-0">This field is required</small>
+             </div>
             </div> 
             <div class="col-md-6">
               <label for="city" class="form-label">City</label>
               <input type="text" class="form-control" id="city" aria-describedby="inputGroupPrepend" placeholder="City" formControlName="city">
+              <div *ngIf="obtainFGValidatorEdit.city.errors && (obtainFGValidatorEdit.city.dirty || obtainFGValidatorEdit.city.touched)" class="validations">
+                <small *ngIf="obtainFGValidatorEdit.city.errors.required || obtainFGValidatorEdit.city.touched" class="mt-0">This field is required</small>
+                <small *ngIf="obtainFGValidatorEdit.city.errors.pattern" class="mt-0">Must be just letters</small>
+             </div>
             </div>
             <div class="col-md-6">
               <label for="venue" class="form-label">Venue</label>
@@ -262,6 +281,9 @@
                 <option value="Monterrey">Monterrey</option>
                 <option value="Tijuana">Tijuana</option>
               </select>
+              <div *ngIf="obtainFGValidatorEdit.venue.errors && (obtainFGValidatorEdit.venue.dirty || obtainFGValidatorEdit.venue.touched)" class="validations">
+                <small *ngIf="obtainFGValidatorEdit.venue.errors.required || obtainFGValidatorEdit.venue.touched" class="mt-0">This field is required</small>
+             </div>
             </div>
             <div class="col-md-6">
               <label for="origin_type" class="form-label">Origin</label>
@@ -272,6 +294,9 @@
                 <option value="Externo(Krunger)">Externo(Krunger)</option>
                 <option value="Reclutamiento">Reclutamiento</option>
               </select>
+              <div *ngIf="obtainFGValidatorEdit.origin_type.errors && (obtainFGValidatorEdit.origin_type.dirty || obtainFGValidatorEdit.origin_type.touched)" class="validations">
+                <small *ngIf="obtainFGValidatorEdit.origin_type.errors.required || obtainFGValidatorEdit.origin_type.touched" class="mt-0">This field is required</small>
+             </div>
             </div> 
             <div class="col-md-6">
               <label for="type_mind" class="form-label">Mind</label>
@@ -280,16 +305,23 @@
                 <option value="Mind_University">Mind University</option>
                 <option value="Mind_Teams">Mind Teams</option>
               </select>
+              <div *ngIf="obtainFGValidatorEdit.type_mind.errors && (obtainFGValidatorEdit.type_mind.dirty || obtainFGValidatorEdit.type_mind.touched)" class="validations">
+                <small *ngIf="obtainFGValidatorEdit.type_mind.errors.required || obtainFGValidatorEdit.type_mind.touched" class="mt-0">This field is required</small>
+             </div>
             </div>
             <div class="col-md-6">
               <label for="date_entry_mind" class="form-label">Date Entry</label>
-              <input type="string" class="form-control" id="date_entry_mind" formControlName="date_entry_mind" placeholder="DD/MM/YYYY">
+              <input type="string" class="form-control" id="date_entry_mind" formControlName="date_entry_mind" placeholder="YYYY-MM-DD" maxlength="10">
+              <div *ngIf="obtainFGValidatorEdit.date_entry_mind.errors && (obtainFGValidatorEdit.date_entry_mind.dirty || obtainFGValidatorEdit.date_entry_mind.touched)" class="validations">
+                <small *ngIf="obtainFGValidatorEdit.date_entry_mind.errors.required || obtainFGValidatorEdit.date_entry_mind.touched" class="mt-0">This field is required</small>
+             </div>
             </div>
             <div class="col-md-6">
               <label for="days_mind" class="form-label">Days Mind</label>
               <input type="number" class="form-control" id="days_mind" formControlName="days_mind">
             </div>     
-            <button type="submit" class="btn btn-outline-warning">Save changes</button>          
+            <button type="submit" class="btn btn-outline-warning"
+            [disabled]="obtainFGValidatorEdit.email.errors || obtainFGValidatorEdit.full_name.errors || obtainFGValidatorEdit.phone.errors || obtainFGValidatorEdit.city.errors || obtainFGValidatorEdit.venue.errors || obtainFGValidatorEdit.origin_type.errors || obtainFGValidatorEdit.english_level.errors || obtainFGValidatorEdit.type_mind.errors || obtainFGValidatorEdit.date_entry_mind.errors">Save changes</button>          
           </form>
         </div>
         <div class="modal-footer">

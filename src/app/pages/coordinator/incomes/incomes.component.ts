@@ -19,21 +19,20 @@ export class IncomesComponent implements OnInit {
   fGValid: FormGroup = new FormGroup({});
   fGValidEdit: FormGroup = new FormGroup({});
   fGValidDelete: FormGroup = new FormGroup({});
-  today: number = Date.now();
 
   constructor(private userService: UserServiceService, private fb: FormBuilder) { }
 
   buildForm(){
     this.fGValid= this.fb.group({
       email: ['',[Validators.required, Validators.email]],
-      full_name: ['',[Validators.required, ]],
+      full_name: ['',[Validators.required, Validators.pattern("[a-zA-Z ]{2,254}")]],
       phone: ['',[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-      city: ['',[Validators.required]],
+      city: ['',[Validators.required, Validators.pattern("[a-zA-Z ]{2,254}")]],
       venue: ['',[Validators.required]],
       origin_type: ['',[Validators.required]],
       english_level: ['', [Validators.required]],
       type_mind: ['', [Validators.required]],
-      date_entry_mind: ['', [Validators.required]],
+      date_entry_mind: ['', [Validators.required, Validators.pattern("(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))")]],
       // days_mind:[{value: '', disabled: true}]
     });
   }
@@ -42,14 +41,14 @@ export class IncomesComponent implements OnInit {
     this.fGValidEdit= this.fb.group({
       id: [{value: '', disabled: true}],
       email: ['',[Validators.required, Validators.email]],
-      full_name: ['',[Validators.required ]],
+      full_name: ['',[Validators.required, Validators.pattern("[a-zA-Z ]{2,254}")]],
       phone: ['',[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-      city: ['',[Validators.required]],
+      city: ['',[Validators.required, Validators.pattern("[a-zA-Z ]{2,254}")]],
       venue: ['',[Validators.required]],
       origin_type: ['',[Validators.required]],
       english_level: ['', [Validators.required]],
       type_mind: ['', [Validators.required]],
-      date_entry_mind: ['', [Validators.required]],
+      date_entry_mind: ['', [Validators.required, Validators.pattern("(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))")]],
       days_mind: [{value: '', disabled: true}],
     });
   }

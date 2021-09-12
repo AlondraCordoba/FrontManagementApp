@@ -23,10 +23,9 @@
         <h1 class="headmind">Reports</h1>
       </div>
     </div>
-
      
     <div class="containerFilter" style="width:70vw; margin-top: 5%;">
-      <div class="input-group mb-3" style="margin-left: 15vw;">
+      <!-- <div class="input-group mb-3" style="margin-left: 15vw;">
         <label class="input-group-text" for="inputGroupSelect01">Filter</label>
         <select class="form-select" id="inputGroupSelect01">
           <option selected>Select one</option>
@@ -35,7 +34,26 @@
           <option value="3">Mind University</option>
           <option value="4">Mind Teams</option>
         </select>
+      </div> -->
+      <h5 style="margin-left: 10%;">Filter by</h5>
+
+      <div class="col-md-12 mb-2"  style="margin-left: 15vw; text-align:center">
+        <div class="row">
+          <div class="col-md-3">
+            <button type="button" class="btn mb-2 mb-md-0 btn-round btn-outline btn-block btn-purple" (click)="filterName()">Name</button>
+          </div>
+          <div class="col-md-3">
+            <button type="button" class="btn mb-2 mb-md-0 btn-round btn-outline btn-block btn-blue" (click)="filterDate()">Date</button>
+          </div>
+          <div class="col-md-3">
+            <button type="button" class="btn mb-2 mb-md-0 btn-round btn-outline btn-block btn-purple" (click)="filterMindU">Mind University</button>
+          </div>
+          <div class="col-md-3">
+            <button type="button" class="btn mb-2 mb-md-0 btn-round btn-outline btn-block btn-blue" (click)="filterMindT">Mind Teams</button>
+          </div>
+        </div>
       </div>
+
     </div>
 
       <br><br>

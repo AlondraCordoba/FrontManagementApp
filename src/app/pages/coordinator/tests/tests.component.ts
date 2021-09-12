@@ -25,7 +25,7 @@ export class TestsComponent implements OnInit {
   buildForm(){
     this.fGValid= this.fb.group({
       technology: ['',[Validators.required]],
-      date: ['',[Validators.required]],
+      date: ['',[Validators.required, Validators.pattern("(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))")]],
       score: ['',[Validators.required]],
       user_id: ['',[Validators.required]],
     });
@@ -35,7 +35,7 @@ export class TestsComponent implements OnInit {
     this.fGValidEdit= this.fb.group({
       id: [{value: '', disabled: true}],
       technology: ['',[Validators.required]],
-      date: ['',[Validators.required]],
+      date: ['',[Validators.required, Validators.pattern("(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))")]],
       score: ['',[Validators.required]],
       user_id: ['',[Validators.required]],
     });

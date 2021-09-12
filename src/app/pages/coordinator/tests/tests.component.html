@@ -22,9 +22,6 @@
       <div class="text-center">
         <h1 class="headmind">Tests</h1>
       </div>
-
-	 
-
     </div>
 
 	<div class="addTestResult">
@@ -67,10 +64,11 @@
 					<input type="string" class="form-control" id="date" placeholder="YYYY-MM-DD" formControlName="date" maxlength="10">
 					<div *ngIf="obtainFGValidator.date.errors && (obtainFGValidator.date.dirty || obtainFGValidator.date.touched)" class="validations">
 						<small *ngIf="obtainFGValidator.date.errors.required" class="mt-0">This field is required</small>
+						<small *ngIf="obtainFGValidator.date.errors.pattern" class="mt-0">Must be YYYY-MM-DD format</small>
 					 </div>
 				  </div>
 				  <button type="submit" class="btn btn-outline-dark"
-				  [disabled]="obtainFGValidator.user_id.errors || obtainFGValidator.technology.errors || obtainFGValidator.date.errors || obtainFGValidator.score.errors">Register</button>     
+				  [disabled]="obtainFGValidator.user_id.errors || obtainFGValidator.technology.errors || obtainFGValidator.date.errors || obtainFGValidator.score.errors|| obtainFGValidator.date_entry_mind.errors">Register</button>     
 				</form>
 			  </div>
 			  <div class="modal-footer">
@@ -115,7 +113,6 @@
 
 </div>
 
-
   <!--Edit-->
   <div class="modal fade" id="editTestResult" tabindex="-1" aria-labelledby="editTestResultLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -133,21 +130,35 @@
 				  <label for="user_id" class="form-label">User</label>
 				  <select class="form-select" id="user_id" formControlName="user_id">
 					  <option *ngFor="let user of usersList" [ngValue]="user.id" selected>{{user.full_name}}</option>
+					  <div *ngIf="obtainFGValidatorEdit.user_id.errors && (obtainFGValidatorEdit.user_id.dirty || obtainFGValidatorEdit.user_id.touched)" class="validations">
+						<small *ngIf="obtainFGValidatorEdit.user_id.errors.required" class="mt-0">This field is required</small>
+					 </div>
 				  </select> 
 				</div> 
 				<div class="col-md-12">
 				  <label for="technology" class="form-label">Technology</label>
 					<input type="text" class="form-control" id="technology" aria-describedby="inputGroupPrepend" placeholder="Technology" formControlName="technology">
+					<div *ngIf="obtainFGValidatorEdit.technology.errors && (obtainFGValidatorEdit.technology.dirty || obtainFGValidator.technology.touched)" class="validations">
+						<small *ngIf="obtainFGValidatorEdit.technology.errors.required" class="mt-0">This field is required</small>
+					 </div>
 				</div>
 				<div class="col-md-6">
 					<label for="score" class="form-label">Score</label>
 					<input type="number" class="form-control" id="score" placeholder="score obtained" formControlName="score">
+					<div *ngIf="obtainFGValidatorEdit.score.errors && (obtainFGValidatorEdit.score.dirty || obtainFGValidatorEdit.score.touched)" class="validations">
+						<small *ngIf="obtainFGValidatorEdit.score.errors.required" class="mt-0">This field is required</small>
+					 </div>
 				  </div>
 				<div class="col-md-6">
 				  <label for="date" class="form-label">Date</label>
-				  <input type="string" class="form-control" id="date" placeholder="YYYY/MM/DD" formControlName="date">
+				  <input type="string" class="form-control" id="date" placeholder="YYYY-MM-DD" formControlName="date" minlength="10">
+				  <div *ngIf="obtainFGValidatorEdit.date.errors && (obtainFGValidatorEdit.date.dirty || obtainFGValidatorEdit.date.touched)" class="validations">
+					<small *ngIf="obtainFGValidatorEdit.date.errors.required" class="mt-0">This field is required</small>
+					<small *ngIf="obtainFGValidatorEdit.date.errors.pattern" class="mt-0">Must be YYYY-MM-DD format</small>
+				 </div>
 				</div>
-				<button type="submit" class="btn btn-outline-warning">Save changes</button>     
+				<button type="submit" class="btn btn-outline-warning"
+				[disabled]="obtainFGValidatorEdit.user_id.errors || obtainFGValidatorEdit.technology.errors || obtainFGValidatorEdit.date.errors || obtainFGValidatorEdit.score.errors|| obtainFGValidatorEdit.date_entry_mind.errors">Save changes</button>     
 			  </form>
         </div>
         <div class="modal-footer">
