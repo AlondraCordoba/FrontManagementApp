@@ -41,6 +41,7 @@
                   <input type="text" class="form-control" id="full_name" placeholder="Last Name   First Name" formControlName="full_name">
                   <div *ngIf="obtainFGValidator.full_name.errors && (obtainFGValidator.full_name.dirty || obtainFGValidator.full_name.touched)" class="validations">
                     <small *ngIf="obtainFGValidator.full_name.errors.required" class="mt-0">This field is required</small>
+                    <small *ngIf="obtainFGValidator.full_name.errors.pattern" class="mt-0">Must be just letters</small>
                  </div>
                 </div> 
                 <div class="col-md-12">
@@ -231,6 +232,7 @@
               <input type="text" class="form-control" id="full_name" placeholder="Last Name   First Name" formControlName="full_name">
               <div *ngIf="obtainFGValidatorEdit.full_name.errors && (obtainFGValidatorEdit.full_name.dirty || obtainFGValidatorEdit.full_name.touched)" class="validations">
                 <small *ngIf="obtainFGValidatorEdit.full_name.errors.required" class="mt-0">This field is required</small>
+                <small *ngIf="obtainFGValidatorEdit.full_name.errors.pattern" class="mt-0">Must be just letters</small>
              </div>
             </div> 
             <div class="col-md-12">
