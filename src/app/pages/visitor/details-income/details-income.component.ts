@@ -26,6 +26,8 @@ export class DetailsIncomeComponent implements OnInit {
     this.userService.getUsers().subscribe(
       (data) => {
         this.usersList = data;
+        let dataMind = data.filter(data => {data.origin_type == 'Mind University'})
+        console.log(dataMind); 
       },
       (error) => {
         alert(`Error: ${error}`);

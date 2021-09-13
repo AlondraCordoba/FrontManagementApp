@@ -76,7 +76,7 @@
                 </div> 
                 <div class="col-md-6">
                   <label for="city" class="form-label">City</label>
-                  <input type="text" class="form-control" id="city" aria-describedby="inputGroupPrepend" placeholder="City" formControlName="city">
+                  <input type="text" class="form-control" id="city" aria-describedby="inputGroupPrepend" placeholder="City where it operates" formControlName="city">
                     <div *ngIf="obtainFGValidator.city.errors && (obtainFGValidator.city.dirty || obtainFGValidator.city.touched)" class="validations">
                     <small *ngIf="obtainFGValidator.city.errors.required || obtainFGValidator.city.touched" class="mt-0">This field is required</small>
                     <small *ngIf="obtainFGValidator.city.errors.pattern" class="mt-0">Must be just letters</small>
@@ -266,7 +266,7 @@
             </div> 
             <div class="col-md-6">
               <label for="city" class="form-label">City</label>
-              <input type="text" class="form-control" id="city" aria-describedby="inputGroupPrepend" placeholder="City" formControlName="city">
+              <input type="text" class="form-control" id="city" aria-describedby="inputGroupPrepend" placeholder="City where it operates" formControlName="city">
               <div *ngIf="obtainFGValidatorEdit.city.errors && (obtainFGValidatorEdit.city.dirty || obtainFGValidatorEdit.city.touched)" class="validations">
                 <small *ngIf="obtainFGValidatorEdit.city.errors.required || obtainFGValidatorEdit.city.touched" class="mt-0">This field is required</small>
                 <small *ngIf="obtainFGValidatorEdit.city.errors.pattern" class="mt-0">Must be just letters</small>
