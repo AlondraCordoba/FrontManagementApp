@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GeneralData } from 'src/app/config/generalData';
 import { UserModel } from '../../../models/user.model';
 import { UserServiceService } from '../../../services/userService/user-service.service';
+import { TestServiceService } from '../../../services/testService/test-service.service';
+import { TestModel } from '../../../models/tests.model';
 
 @Component({
   selector: 'app-details-income',
@@ -14,9 +16,10 @@ export class DetailsIncomeComponent implements OnInit {
   page: number = 1;
   numUsersPage: number = GeneralData.numUsersforPage;
   userInfo: UserModel = new UserModel;
+  testsUsersList: TestModel[] = [];
   id: any;
 
-  constructor(private userService: UserServiceService) { }
+  constructor(private userService: UserServiceService, private testService: TestServiceService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -26,8 +29,6 @@ export class DetailsIncomeComponent implements OnInit {
     this.userService.getUsers().subscribe(
       (data) => {
         this.usersList = data;
-        let dataMind = data.filter(data => {data.origin_type == 'Mind University'})
-        console.log(dataMind); 
       },
       (error) => {
         alert(`Error: ${error}`);
@@ -42,6 +43,7 @@ export class DetailsIncomeComponent implements OnInit {
   getId (idUser?: number){
     this.id = idUser;
     this.searchUser();
+    this.searchTest();
   }
 
   searchUser(){
@@ -51,6 +53,17 @@ export class DetailsIncomeComponent implements OnInit {
       },
       (error)=>{
         alert("User not found" + this.id)
+      }
+    )
+  }
+
+  searchTest(){
+    this.userService.getTestsUsers(this.id).subscribe(
+      (data)=>{
+        this.testsUsersList = data;
+      },
+      (error)=>{
+      alert("Tests not found" + this.id)
       }
     )
   }

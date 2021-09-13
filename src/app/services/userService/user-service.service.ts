@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { CoordinatorModel } from '../../models/coordinator.model';
 import { UserModel } from 'src/app/models/user.model';
 import { CoordinatorServiceService } from '../coordinatorService/coordinator-service.service';
+import { TestModel } from '../../models/tests.model';
 
 @Injectable({
   providedIn: 'root'
@@ -73,6 +74,10 @@ export class UserServiceService {
         "Authorization": `Bearer ${this.token}` 
       })
     });
+  }
+
+  getTestsUsers(id: number): Observable<TestModel[]>{
+    return this.http.get<TestModel[]>(`${this.url}/users/${id}/tests`);
   }
 
 }

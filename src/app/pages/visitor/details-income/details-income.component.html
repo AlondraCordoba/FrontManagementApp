@@ -81,9 +81,29 @@
               </div>
             </div>
           </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
-        </div>
+          <hr>
+          <h6 class="text-center">Details Tests</h6>
+          <div style="height: auto; overflow: auto; width: auto" class="containerTable">
+            <table class="table table-striped table-responsive table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl" >
+              <thead class="bg-primary text-white" style="position: sticky; top:0; z-index: 10;">
+                <tr>
+                <th scope="col" class="text-center">Technology</th>
+                <th scope="col" class="text-center">Score</th>
+                <th scope="col" class="text-center">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let test of testsUsersList">
+                  <td class="text-center">{{test.technology}}</td>
+                  <td class="text-center">{{test.score}}</td>
+                  <td class="text-center">{{test.date}}</td>		
+                </tr>  
+              </tbody>
+              </table>		
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+            </div>
       </div>
     </div>
   </div>
