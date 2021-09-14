@@ -40,7 +40,6 @@ export class LoginComponent implements OnInit {
     if (this.fGValid.invalid) {
       alert ("Invalid form")
     } else {
-      alert("Validating ...");
       let email = this.obtainFGValidator.email.value;
       let password = this.obtainFGValidator.password.value;
       let encryPassword = crypto.MD5(password).toString();

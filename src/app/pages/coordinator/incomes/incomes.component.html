@@ -35,7 +35,7 @@
               <h5 class="modal-title text-white" id="exampleModalLabel"><b>Add User</b></h5>
             </div>
             <div class="modal-body">
-              <form class="row g-3"  [formGroup]="fGValid" (ngSubmit)="addUser()">
+              <form class="row g-3"  [formGroup]="fGValid" (ngSubmit)="addUser()" #f="ngForm">
                 <div class="col-md-12">
                   <label for="full_name" class="form-label">Full Name</label>
                   <input type="text" class="form-control" id="full_name" placeholder="Last Name   First Name" formControlName="full_name">
@@ -113,8 +113,8 @@
                   <label for="type_mind" class="form-label">Mind</label>
                   <select class="form-select" id="type_mind" formControlName="type_mind">
                     <option selected disabled value="">Choose...</option>
-                    <option value="Mind_University">Mind University</option>
-                    <option value="Mind_Teams">Mind Teams</option>
+                    <option value="Mind University">Mind University</option>
+                    <option value="Mind Teams">Mind Teams</option>
                   </select>
                   <div *ngIf="obtainFGValidator.type_mind.errors && (obtainFGValidator.type_mind.dirty || obtainFGValidator.type_mind.touched)" class="validations">
                     <small *ngIf="obtainFGValidator.type_mind.errors.required || obtainFGValidator.type_mind.touched" class="mt-0">This field is required</small>

@@ -3,6 +3,8 @@ import { GeneralData } from 'src/app/config/generalData';
 import { VacancieModel } from 'src/app/models/vacancie.model';
 import { VacancieServiceService } from '../../../services/vacancieService/vacancie-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserServiceService } from 'src/app/services/userService/user-service.service';
+import { UserModel } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-dashboard-collaborator',
@@ -14,6 +16,10 @@ export class DashboardCollaboratorComponent implements OnInit {
   vacanciesList: VacancieModel[] = []; 
   vacanciesCount: any; 
   vacancieInfo: VacancieModel = new VacancieModel;
+  usersListMU: UserModel[] = [];
+  usersListMT: UserModel[] = [];
+  usersMUCount: any; 
+  usersMTCount: any;
   page: number = 1;
   numUVacancPage: number = GeneralData.numVacanforPage;
   id: any;
@@ -22,7 +28,7 @@ export class DashboardCollaboratorComponent implements OnInit {
   fGValidDelete: FormGroup = new FormGroup({});
 
 
-  constructor(private vacancieService: VacancieServiceService, private fb: FormBuilder) { }
+  constructor(private vacancieService: VacancieServiceService, private fb: FormBuilder, private userService: UserServiceService) { }
 
   buildForm(){
     this.fGValid= this.fb.group({
@@ -46,6 +52,7 @@ export class DashboardCollaboratorComponent implements OnInit {
 
   ngOnInit(): void {
     this.getVacancies();
+    this.getUsersMUT();
     this.buildForm();
     this.buildFormEdit();
   }
@@ -61,7 +68,21 @@ export class DashboardCollaboratorComponent implements OnInit {
     this.id = idVacancie;
     this.searchVacancie();
   }
- 
+
+  getUsersMUT(){
+    this.userService.getUsers().subscribe(
+      (data) => {
+        this.usersListMU = data.filter(e => e.type_mind === 'Mind University');
+        this.usersListMT = data.filter(e => e.type_mind === 'Mind Teams');
+        this.usersMTCount = this.usersListMT.length;
+        this.usersMUCount = this.usersListMU.length;
+      },
+      (error) => {
+        alert(`Error: ${error}`);
+      }
+    )
+  }
+
   getVacancies(){
     this.vacancieService.getVacancies().subscribe(
       (data) => {

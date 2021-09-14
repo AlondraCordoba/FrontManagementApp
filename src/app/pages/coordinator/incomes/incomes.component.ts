@@ -86,6 +86,8 @@ export class IncomesComponent implements OnInit {
     this.page = pg;
   }
 
+  
+
   addUser(){
     let full_name = this.obtainFGValidator.full_name.value;
     let phone = this.obtainFGValidator.phone.value;

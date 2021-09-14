@@ -18,7 +18,7 @@ import { SidebarComponent } from './pages/common/sidebar/sidebar.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    SidebarComponent    
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

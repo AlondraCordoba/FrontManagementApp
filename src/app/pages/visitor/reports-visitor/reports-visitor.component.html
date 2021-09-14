@@ -40,7 +40,7 @@
       <div class="col-md-12 mb-2"  style="margin-left: 15vw; text-align:center">
         <div class="row">
           <div class="col-md-3">
-            <button type="button" class="btn mb-2 mb-md-0 btn-round btn-outline btn-block btn-purple" (click)="filterName()">Name</button>
+            <button type="button" class="btn mb-2 mb-md-0 btn-round btn-outline btn-block btn-purple" (click)="downloadPDF()">Name</button>
           </div>
           <div class="col-md-3">
             <button type="button" class="btn mb-2 mb-md-0 btn-round btn-outline btn-block btn-blue" (click)="filterDate()">Date</button>
@@ -59,3 +59,28 @@
       <br><br>
 
 </div>
+
+
+<!--FIlter Table-->
+
+<div id="htmlData" style="width: 80%; margin-left: 10%;">
+  <table class="table" >
+    <thead class="bg-success text-white">
+      <tr>
+        <th scope="col" class="text-center">Technology</th>
+        <th scope="col" class="text-center">Seniority</th>
+      <th scope="col" class="text-center">Trial Account</th>
+      <th scope="col" class="text-center">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vacancie of vacanciesList" ng-repeat="vacancie in vacanciesList | orderBy: 'technology'">
+        <td class="text-center">{{vacancie.technology}}</td>
+        <td class="text-center">{{vacancie.seniority}}</td>
+        <td class="text-center">{{vacancie.trial_Account}}</td>	
+        <td class="text-left">{{vacancie.description}}</td>	
+      </tr>  
+    </tbody>
+    </table>		
+</div>
+
