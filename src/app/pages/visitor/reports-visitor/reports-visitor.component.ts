@@ -3,10 +3,8 @@ import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import { VacancieModel } from 'src/app/models/vacancie.model';
 import { VacancieServiceService } from 'src/app/services/vacancieService/vacancie-service.service';
-import * as $ from 'jquery';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import { orderBy } from 'lodash';
 import { UserServiceService } from 'src/app/services/userService/user-service.service';
 import { UserModel } from 'src/app/models/user.model';
 
