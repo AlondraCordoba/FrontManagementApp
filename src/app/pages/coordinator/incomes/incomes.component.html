@@ -302,11 +302,7 @@
             </div> 
             <div class="col-md-6">
               <label for="type_mind" class="form-label">Mind</label>
-              <select class="form-select" id="type_mind" formControlName="type_mind">
-                <option selected disabled value="">Choose...</option>
-                <option value="Mind_University">Mind University</option>
-                <option value="Mind_Teams">Mind Teams</option>
-              </select>
+              <input type="string" class="form-control" id="type_mind" formControlName="type_mind" placeholder="Mind University --- Mind Teams" minlength="9">
               <div *ngIf="obtainFGValidatorEdit.type_mind.errors && (obtainFGValidatorEdit.type_mind.dirty || obtainFGValidatorEdit.type_mind.touched)" class="validations">
                 <small *ngIf="obtainFGValidatorEdit.type_mind.errors.required || obtainFGValidatorEdit.type_mind.touched" class="mt-0">This field is required</small>
              </div>

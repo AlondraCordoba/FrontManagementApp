@@ -3,6 +3,7 @@ import { UserModel } from '../../../models/user.model';
 import { UserServiceService } from '../../../services/userService/user-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GeneralData } from 'src/app/config/generalData';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-incomes',
@@ -57,6 +58,10 @@ export class IncomesComponent implements OnInit {
     this.getUsers();
     this.buildForm();
     this.buildFormEdit();
+    let dateString = '02/05/2020';  
+    let momentVariable = moment(dateString, 'MM-DD-YYYY');  
+    let stringvalue = momentVariable.format('YYYY-MM-DD');   
+    console.log(stringvalue); 
   }
 
   get obtainFGValidator(){

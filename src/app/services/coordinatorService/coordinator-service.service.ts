@@ -15,6 +15,38 @@ export class CoordinatorServiceService {
     this.verifySession();
   }
 
+  getUsers(): Observable<CoordinatorModel[]>{
+    return this.http.get<CoordinatorModel[]>(`${this.url}/users`);
+  }
+
+  searchUser(id: number): Observable<CoordinatorModel>{
+    return this.http.get<CoordinatorModel>(`${this.url}/users/${id}`);
+  }
+ 
+  postUser(coordModel: CoordinatorModel): Observable<any>{
+    return this.http.post<any>(`${this.url}/users`, {
+      name: coordModel.name,
+      email: coordModel.email,
+      password: coordModel.password,
+      role_id: coordModel.role_id
+    });
+  }
+
+  editUser(coordModel: CoordinatorModel): Observable<any>{
+    return this.http.put<any>(`${this.url}/users/${coordModel.id}`, {
+      name: coordModel.name,
+      email: coordModel.email,
+      password: coordModel.password,
+      role_id: coordModel.role_id
+    });
+  }
+
+  deleteUser(id: number): Observable<any>{
+    return this.http.delete<any>(`${this.url}/users/${id}`, 
+    );
+  }
+
+
   loginCoordinator(coordModel: CoordinatorModel): Observable<any>{
     return this.http.post<any>(`${this.url}/login`, {
       email: coordModel.email,
