@@ -1,1 +1,137 @@
-<p>manage-coord works!</p>
+<div class="homeContainer">	
+
+	<div class="navigation-wrap start-header start-style">
+		<div class="container">
+			<div class="row">
+        <div class="col-4">
+					<div class="navbar navbar-expand-md navButton">
+						<app-sidebar-coord></app-sidebar-coord>
+					</div>		
+				</div>
+				<div class="col-4">
+					<nav class="navbar navbar-expand-md navImg">
+						<a class="navbar-brand imgMind" href="https://www.mindhub.mx/" target="_blank"><img src="../../../../assets/images/mindLogoW.png" alt=""></a>	
+					</nav>		
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <div class="content">
+    <div class="headerBanner">
+      <div class="text-center">
+        <h1 class="headmind">Coordinators</h1>
+      </div>
+    </div>
+
+	<div class="addTestResult">
+		<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#addTestResultModal">
+		  Add Coordinator
+		</button>
+		<div class="modal fade" id="addTestResultModal" tabindex="-1" aria-labelledby="addTestResultModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header bg-dark">
+				<h5 class="modal-title text-white" id="exampleModalLabel"><b>New Coordinator</b></h5>
+			  </div>
+			  <div class="modal-body">
+				<form class="row g-3" [formGroup]="fGValid" (ngSubmit)="adCoordinator()">
+                    <div class="col-md-12">
+                    <label for="role_id" class="form-label">Role</label>
+                    <select class="form-select" id="role_id" formControlName="role_id">
+						<option *ngFor="let role of rolesList" [ngValue]="role.id">{{role.role_type}}</option>
+					</select> 
+					<div *ngIf="obtainFGValidator.role_id.errors && (obtainFGValidator.role_id.dirty || obtainFGValidator.role_id.touched)" class="validations">
+						<small *ngIf="obtainFGValidator.role_id.errors.required" class="mt-0">This field is required</small>
+					 </div>
+                    </div>
+
+                     <div class="col-md-12">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Last Name   First Name" formControlName="name">
+                        <div *ngIf="obtainFGValidator.name.errors && (obtainFGValidator.name.dirty || obtainFGValidator.name.touched)" class="validations">
+                          <small *ngIf="obtainFGValidator.name.errors.required" class="mt-0">This field is required</small>
+                          <small *ngIf="obtainFGValidator.name.errors.pattern" class="mt-0">Must be just letters</small>
+                       </div>
+                      </div> 
+
+                      <div class="col-md-12">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" formControlName="email" placeholder="user@example.com">
+                        <div *ngIf="obtainFGValidator.email.errors && (obtainFGValidator.email.dirty || obtainFGValidator.email.touched)" class="validations">
+                          <small *ngIf="obtainFGValidator.email.errors.required" class="mt-0">This field is required</small>
+                          <small *ngIf="obtainFGValidator.email.errors.email">Must comply with an email format</small>
+                        </div> 
+                      </div>
+
+                      <div class="col-md-12">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" formControlName="password" placeholder="******************" minlength="8" maxlength="16">
+                        <div *ngIf="obtainFGValidator.password.errors && (obtainFGValidator.password.dirty || obtainFGValidator.password.touched)" class="validations">
+                            <small *ngIf="obtainFGValidator.password.errors.required">This field is required</small>
+                            <small *ngIf="obtainFGValidator.password.errors.minlength">Must be at least 8 characters long</small>
+                            <small *ngIf="obtainFGValidator.password.errors.maxLength">Must be maximum 16 characters</small>
+                          </div> 
+                      </div>
+				 
+				  <button type="submit" class="btn btn-outline-dark" [disabled]="obtainFGValidator.email.errors || obtainFGValidator.password.errors || obtainFGValidator.name.errors || obtainFGValidator.role_id.errors">Register</button>     
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div> 
+
+	 <div style="height: 600px; overflow: scroll; width: 85%; margin-left: 7.5%;" class="containerTable">
+		<table class="table table-striped table-responsive table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl" >
+			<thead class="bg-dark text-white" style="position: sticky; top:0; z-index: 10;">
+			  <tr>
+				<th scope="col">ID</th>
+				<th scope="col" class="text-center">Coordinator</th>
+				<th scope="col" class="text-center">Email</th>
+				<th scope="col" class="text-center"></th>
+			  </tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let coord of coordList">
+					<th scope="row">{{coord.id}}</th>
+                    <td class="text-center">{{coord.name}}</td>
+					<td class="text-center">{{coord.email}}</td>
+					<td class="text-center">
+						<div class="containerButtons">
+							<button type="button" class="btn btn-outline-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteTestResult"(click)="getId(coord.id)"><i class="fas fa-trash-alt"></i></button>
+						  </div>
+					</td>  
+				</tr>  
+			</tbody>
+		  </table>		
+	</div>
+
+      <br><br>
+
+</div>
+
+  <!--Delete-->
+  <div class="modal fade" id="deleteTestResult" tabindex="-1" aria-labelledby="deleteTestResultLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger">
+          <h5 class="modal-title text-white" id="exampleModalLabel"><b>Delete</b></h5>
+        </div>
+        <div class="modal-body">
+          <form class="row g-3">
+            <div class="col-md-12">
+              ¿Do you want to delete the user result with id: <strong>{{id}}</strong> ? 
+            </div>
+            <button type="submit" class="btn btn-outline-danger" (click)="deleteCoordinator()">Delete</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>

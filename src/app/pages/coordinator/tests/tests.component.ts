@@ -94,8 +94,6 @@ export class TestsComponent implements OnInit {
     testModel.score = score;
     testModel.user_id = user_id;
 
-    console.log(testModel);
-
     this.testService.postTest(testModel).subscribe(
       (data) =>{
         alert("Test result inserted successfully"); 

@@ -14,6 +14,7 @@ import { InfoFilesComponent } from './info-files/info-files.component';
 import { ReportsCollabComponent } from './reports-collab/reports-collab.component';
 import { TestsComponent } from './tests/tests.component';
 import { SidebarCoordComponent } from '../common/sidebar-coord/sidebar-coord.component';
+import { ManageCoordComponent } from './manage-coord/manage-coord.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SidebarCoordComponent } from '../common/sidebar-coord/sidebar-coord.com
     InfoFilesComponent,
     ReportsCollabComponent,
     TestsComponent,
-    SidebarCoordComponent
+    SidebarCoordComponent,
+    ManageCoordComponent
   ],
   imports: [
     CommonModule,

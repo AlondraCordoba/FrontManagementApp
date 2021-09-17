@@ -127,10 +127,10 @@
                     <small *ngIf="obtainFGValidator.date_entry_mind.errors.required || obtainFGValidator.date_entry_mind.touched" class="mt-0">This field is required</small>
                  </div>
                 </div>
-                <!-- <div class="col-md-6">
+                <div class="col-md-6">
                   <label for="days_mind" class="form-label">Days Mind</label>
                   <input type="number" class="form-control inputDays" id="days_mind" formControlName="days_mind">
-                </div> -->
+                </div>
                 <button type="submit" class="btn btn-outline-dark" 
                 [disabled]="obtainFGValidator.email.errors || obtainFGValidator.full_name.errors || obtainFGValidator.phone.errors || obtainFGValidator.city.errors || obtainFGValidator.venue.errors || obtainFGValidator.origin_type.errors || obtainFGValidator.english_level.errors || obtainFGValidator.type_mind.errors || obtainFGValidator.date_entry_mind.errors
                 " >Register</button>          
@@ -302,7 +302,7 @@
             </div> 
             <div class="col-md-6">
               <label for="type_mind" class="form-label">Mind</label>
-              <input type="string" class="form-control" id="type_mind" formControlName="type_mind" placeholder="Mind University --- Mind Teams" minlength="9">
+              <input type="string" class="form-control" id="type_mind" formControlName="type_mind" placeholder="Mind University --- Mind Teams" minlength="6">
               <div *ngIf="obtainFGValidatorEdit.type_mind.errors && (obtainFGValidatorEdit.type_mind.dirty || obtainFGValidatorEdit.type_mind.touched)" class="validations">
                 <small *ngIf="obtainFGValidatorEdit.type_mind.errors.required || obtainFGValidatorEdit.type_mind.touched" class="mt-0">This field is required</small>
              </div>

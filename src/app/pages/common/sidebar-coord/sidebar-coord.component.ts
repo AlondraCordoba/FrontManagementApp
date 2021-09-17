@@ -27,6 +27,7 @@ export class SidebarCoordComponent implements OnInit {
   goTests(){ this.router.navigate(['/coordinator/tests']);}
   goInfoFilesUsers(){ this.router.navigate(['/coordinator/infoFilesUsers']);}
   goReportsC(){ this.router.navigate(['/coordinator/reportsCoordinator']);}
+  goCoords(){this.router.navigate(['/coordinator/manageCoordinators']);}
 
   suscription: Subscription = new Subscription();
 

@@ -34,7 +34,7 @@ export class IncomesComponent implements OnInit {
       english_level: ['', [Validators.required]],
       type_mind: ['', [Validators.required]],
       date_entry_mind: ['', [Validators.required, Validators.pattern("(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))")]],
-      // days_mind:[{value: '', disabled: true}]
+      days_mind:[{value: ''}]
     });
   }
 
@@ -50,7 +50,7 @@ export class IncomesComponent implements OnInit {
       english_level: ['', [Validators.required]],
       type_mind: ['', [Validators.required]],
       date_entry_mind: ['', [Validators.required, Validators.pattern("(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))")]],
-      days_mind: [{value: '', disabled: true}],
+      days_mind: [{value: ''}],
     });
   }
 
@@ -58,10 +58,6 @@ export class IncomesComponent implements OnInit {
     this.getUsers();
     this.buildForm();
     this.buildFormEdit();
-    let dateString = '02/05/2020';  
-    let momentVariable = moment(dateString, 'MM-DD-YYYY');  
-    let stringvalue = momentVariable.format('YYYY-MM-DD');   
-    console.log(stringvalue); 
   }
 
   get obtainFGValidator(){
@@ -91,8 +87,6 @@ export class IncomesComponent implements OnInit {
     this.page = pg;
   }
 
-  
-
   addUser(){
     let full_name = this.obtainFGValidator.full_name.value;
     let phone = this.obtainFGValidator.phone.value;
@@ -103,6 +97,7 @@ export class IncomesComponent implements OnInit {
     let type_mind = this.obtainFGValidator.type_mind.value;
     let date_entry_mind = this.obtainFGValidator.date_entry_mind.value;
     let email = this.obtainFGValidator.email.value;
+    let days_mind = this.obtainFGValidator.days_mind.value;
 
     let userModel: UserModel = new UserModel();
     userModel.full_name = full_name;
@@ -114,6 +109,7 @@ export class IncomesComponent implements OnInit {
     userModel.type_mind = type_mind;
     userModel.email = email;
     userModel.date_entry_mind = date_entry_mind;
+    userModel.days_mind = days_mind;
 
     this.userService.postUser(userModel).subscribe(
       (data) =>{

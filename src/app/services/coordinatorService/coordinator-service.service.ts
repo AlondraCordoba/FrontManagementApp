@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { CoordinatorModel } from '../../models/coordinator.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { GeneralData } from '../../config/generalData';
+import { RoleModel } from '../../models/role.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +13,23 @@ export class CoordinatorServiceService {
   dataSession: BehaviorSubject<CoordinatorModel> = new BehaviorSubject<CoordinatorModel>(new CoordinatorModel());
 
   constructor(private http: HttpClient) { 
-    this.verifySession();
+    this.verifySession(); 
+  }
+
+  getRoles(): Observable<RoleModel[]>{
+    return this.http.get<RoleModel[]>(`${this.url}/roles`);
   }
 
   getUsers(): Observable<CoordinatorModel[]>{
-    return this.http.get<CoordinatorModel[]>(`${this.url}/users`);
+    return this.http.get<CoordinatorModel[]>(`${this.url}/coordinators`);
   }
 
   searchUser(id: number): Observable<CoordinatorModel>{
-    return this.http.get<CoordinatorModel>(`${this.url}/users/${id}`);
+    return this.http.get<CoordinatorModel>(`${this.url}/coordinators/${id}`);
   }
  
   postUser(coordModel: CoordinatorModel): Observable<any>{
-    return this.http.post<any>(`${this.url}/users`, {
+    return this.http.post<any>(`${this.url}/coordinators`, {
       name: coordModel.name,
       email: coordModel.email,
       password: coordModel.password,
@@ -33,7 +38,7 @@ export class CoordinatorServiceService {
   }
 
   editUser(coordModel: CoordinatorModel): Observable<any>{
-    return this.http.put<any>(`${this.url}/users/${coordModel.id}`, {
+    return this.http.put<any>(`${this.url}/coordinators/${coordModel.id}`, {
       name: coordModel.name,
       email: coordModel.email,
       password: coordModel.password,
@@ -41,8 +46,8 @@ export class CoordinatorServiceService {
     });
   }
 
-  deleteUser(id: number): Observable<any>{
-    return this.http.delete<any>(`${this.url}/users/${id}`, 
+  deleteUser(id: any): Observable<any>{
+    return this.http.delete<any>(`${this.url}/coordinators/${id}`, 
     );
   }
 

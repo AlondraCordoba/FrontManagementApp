@@ -7,11 +7,17 @@ import { InfoFilesComponent } from './info-files/info-files.component';
 import { TestsComponent } from './tests/tests.component';
 import { ReportsCollabComponent } from './reports-collab/reports-collab.component';
 import { SessionValidatorGuard } from '../../guards/session-validator.guard';
+import { ManageCoordComponent } from './manage-coord/manage-coord.component';
 
 const routes: Routes = [
   {
     path: 'homeCoordinator',
     component: HomeCollaboratorComponent,
+    canActivate: [SessionValidatorGuard]
+  },
+  {
+    path: 'manageCoordinators',
+    component: ManageCoordComponent,
     canActivate: [SessionValidatorGuard]
   },
   {
