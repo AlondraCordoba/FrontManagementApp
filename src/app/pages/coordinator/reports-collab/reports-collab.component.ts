@@ -3,9 +3,9 @@ import { VacancieModel } from 'src/app/models/vacancie.model';
 import { UserServiceService } from 'src/app/services/userService/user-service.service';
 import { VacancieServiceService } from 'src/app/services/vacancieService/vacancie-service.service';
 import { UserModel } from 'src/app/models/user.model';
-import jsPDF from 'jspdf';
+// import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-
+declare var jsPDF: any;
 @Component({
   selector: 'app-reports-collab',
   templateUrl: './reports-collab.component.html',

@@ -39,7 +39,7 @@
 				<h5 class="modal-title text-white" id="exampleModalLabel"><b>Files</b></h5>
 			  </div>
 			  <div class="modal-body">
-				<form class="row g-3" [formGroup]="fGValid">
+				<form class="row g-3" [formGroup]="fGValid" (ngSubmit)="addFiles()">
 					<div class="col-md-12">
 						<label for="user_id" class="form-label">User</label>
 						<select class="form-select" id="user_id" formControlName="user_id">
@@ -79,146 +79,108 @@
 	  </div> 
 
 
-	<!-- <div style="height: 600px; overflow: scroll; width: 85%; margin-left: 7.5%;" class="containerTable">
+	<div style="height: 600px; overflow: scroll; width: 85%; margin-left: 7.5%;" class="containerTable">
 		<table class="table table-striped table-responsive table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl" >
 			<thead class="bg-dark text-white" style="position: sticky; top:0; z-index: 10;">
 			  <tr>
-				<th scope="col">ID</th>
-				<th scope="col">Name</th>
+				<th scope="col">User ID</th>
 				<th scope="col" class="text-center">Personal CV</th>
 				<th scope="col" class="text-center">Arkus CV</th>
 				<th scope="col" class="text-center">Interview Report</th>
 			  </tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td class="text-center">
-						<small>File Name</small> <br>
-						<button type="button" class="btn btn-outline-primary" style="margin-right: 5%; margin-bottom: 5%; margin-top: 2%;"><i class="fas fa-upload"></i></button>
-						<button type="button" class="btn btn-outline-success" style="margin-right: 5%; margin-bottom: 5%; margin-top: 2%;"><i class="fas fa-download"></i></button>
+				<tr *ngFor="let files of userFilesList">
+					<td class="text-center">{{files.user_id}} <br>
+						<button type="button" class="btn btn-outline-warning rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#editFilesInfo" ((click)="getId(files.id)"><i class="fas fa-edit"></i></button> 
+                         <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteFilesInfo" (click)="getUserId(files.user_id)"><i class="fas fa-trash-alt"></i></button>
 					</td>
 					<td class="text-center">
-						<small>File Name</small> <br>
-						<button type="button" class="btn btn-outline-primary" style="margin-right: 5%; margin-bottom: 5%; margin-top: 2%;"><i class="fas fa-upload"></i></button>
-						<button type="button" class="btn btn-outline-success" style="margin-right: 5%; margin-bottom: 5%; margin-top: 2%;"><i class="fas fa-download"></i></button>
+						<small>{{files.personal_cv}}</small> <br>
+						<button type="button" class="btn btn-outline-success" style="margin-right: 5%; margin-bottom: 5%; margin-top: 2%;" (click)="getFilePersonal(files.personal_cv)"><i class="fas fa-download"></i></button>
 					</td>
 					<td class="text-center">
-						<small>File Name</small> <br>
-					<button type="button" class="btn btn-outline-primary" style="margin-right: 5%; margin-bottom: 5%; margin-top: 2%;"><i class="fas fa-upload"></i></button>
-						<button type="button" class="btn btn-outline-success" style="margin-right: 5%; margin-bottom: 5%; margin-top: 2%;"><i class="fas fa-download"></i></button>
+						<small>{{files.arkus_cv}}</small> <br>
+						<button type="button" class="btn btn-outline-success" style="margin-right: 5%; margin-bottom: 5%; margin-top: 2%;" (click)="getFilePersonal(files.arkus_cv)"><i class="fas fa-download"></i></button>
+					</td>
+					<td class="text-center">
+						<small>{{files.interview_report}}</small> <br>
+						<button type="button" class="btn btn-outline-success" style="margin-right: 5%; margin-bottom: 5%; margin-top: 2%;" (click)="getFilePersonal(files.interview_report)"><i class="fas fa-download"></i></button>
 					</td>		  
 				</tr>  
 			</tbody>
 		  </table>		
-	</div> -->
-	<div class="row row-cols-1 row-cols-lg-2 row-cols-md-3 row-cols-xl-4 cardsDetails">
-        <div class="col" *ngFor="let userFiles of userFilesList | paginate: { itemsPerPage: numUsersPage, currentPage: page }">
-          <div class="card radius-15">
-            <div class="card-body text-center">
-              <div class="p-4 border radius-15">
-                <img src="../../../../assets/images/usericon.png" width="110" height="110" class="rounded-circle shadow" alt="">
-                <p class="mb-3 mt-3"><b>User ID: </b> {{userFiles.user_id}}</p>
-                <div class="containerButtons"> 
-                  <button type="button" class="btn btn-outline-primary rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#viewInfoUser"><i class="far fa-eye"></i></button>
-                  <button type="button" class="btn btn-outline-warning rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#editInfoUser"><i class="fas fa-edit"></i></button>
-                  <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteUser"><i class="fas fa-trash-alt"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br><br><br>
-      <pagination-controls  
-                      class="pagination"
-                      (pageChange)="changePage($event)"
-                      previousLabel="Previous"
-                      nextLabel="Next">
-      </pagination-controls>
-      <br><br>
+	</div>
 
 </div>
 
- <!-- Info -->
- <div class="modal fade" id="infoIcons" tabindex="-1" aria-labelledby="infoIconsLabel" aria-hidden="true">
+  <!--Edit-->
+  <div class="modal fade" id="editFilesInfo" tabindex="-1" aria-labelledby="editFilesInfoLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header headerInfo">
-          <h5 class="modal-title text-dark" id="exampleModalLabel"><b><i class="fas fa-info"></i> Information</b></h5>
-		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-header bg-warning">
+          <h5 class="modal-title text-dark" id="exampleModalLabel"><b>Edit User</b></h5>
         </div>
         <div class="modal-body">
-			<div class="alert alert-primary fade show" role="alert">
-				<div><strong><i class="fas fa-upload"></i></strong> Upload.</div>
-				<div><strong><i class="fas fa-download"></i></strong> Download.</div>
-			</div>       
-		 </div>
+          <form class="row g-3"  [formGroup]="fGValidEdit" (ngSubmit)="editFilesInfo()">   
+			<div class="col-md-4">
+				<label for="id" class="form-label">Id</label>
+				<input type="number" class="form-control" id="id" formControlName="id">
+			  </div>
+			  <div class="col-md-4">
+				<label for="user_id" class="form-label">User Id</label>
+				<input type="number" class="form-control" id="user_id" formControlName="user_id">
+			  </div>
+			<div class="col-md-12">
+				<p id="personal_cv"> {{namePersonalFileCV}} </p>
+				<input type="text" class="form-control" id="id" formControlName="personal_cv">
+			</div>
+			<div class="col-md-12">
+				<input class="form-control-sm" type="file" id="personal_cv_file" (change)="selectFilePCV($event)" formControlName="personal_cv_file">
+				<button type="button" class="btn btn-outline-dark">Update</button>
+			</div>
+			<div class="col-md-12">
+				<p id="arkus_cv"> {{nameArkusFileCV}} </p>
+				<input type="text" class="form-control" id="id" formControlName="arkus_cv">
+			</div>
+			<div class="col-md-12">
+			<input class="form-control-sm" type="file" id="arkus_cv_file" formControlName="arkus_cv_file">
+			<button type="button" class="btn btn-outline-dark" (change)="selectFileACV($event)">Update</button>
+			</div>
+			<div class="col-md-12">
+				<p id="interview_report"> {{nameInterviewFile}} </p>
+				<input type="text" class="form-control" id="id" formControlName="interview_report"  (change)="selectFileACV($event)">
+			</div>
+			<div class="col-md-12">
+			<input class="form-control-sm" type="file" id="interview_report_file" (change)="selectFileIR($event)" formControlName="interview_report_file" >
+			<button type="button" class="btn btn-outline-dark">Update</button>
+			</div>
+            <button type="submit" class="btn btn-outline-warning">Save changes</button>          
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
+        </div>
       </div>
     </div>
   </div>
 
-    <!-- View -->
-	<div class="modal fade" id="viewInfoUser" tabindex="-1" aria-labelledby="viewInfoUserLabel" aria-hidden="true">
-		<div class="modal-dialog">
-		  <div class="modal-content">
-			<div class="modal-header headerView">
-			  <h5 class="modal-title text-dark" id="exampleModalLabel"><b>View User</b></h5>
-			</div>
-			<div class="modal-body">
-			  <div class="col">
-				<div class="card radius-15">
-				  <div class="card-body text-center">
-	
-					</div>
-				  </div>
-				</div>
-			  </div>
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	  </div>
-	
-	  <!--Edit-->
-	  <div class="modal fade" id="editInfoUser" tabindex="-1" aria-labelledby="editInfoUserLabel" aria-hidden="true">
-		<div class="modal-dialog">
-		  <div class="modal-content">
-			<div class="modal-header bg-warning">
-			  <h5 class="modal-title text-dark" id="exampleModalLabel"><b>Edit User</b></h5>
-			</div>
-			<div class="modal-body">
-			  <form class="row g-3"  [formGroup]="fGValidEdit">
-				
-				<button type="submit" class="btn btn-outline-warning">Save changes</button>          
-			  </form>
-			</div>
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	
-	  <!--Delete-->
-	  <div class="modal fade" id="deleteUser" tabindex="-1" aria-labelledby="deleteUserLabel" aria-hidden="true">
-		<div class="modal-dialog">
-		  <div class="modal-content">
-			<div class="modal-header bg-danger">
-			  <h5 class="modal-title text-white" id="exampleModalLabel"><b>Delete User</b></h5>
-			</div>
-			<div class="modal-body">
-				<div class="col-md-12">
-				  ¿Do you want to delete the user with id: <strong></strong> ? 
-				</div>
-				<button type="submit" class="btn btn-outline-danger">Delete</button>
-			</div>
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
-			</div>
-		  </div>
-		</div>
-	  </div> 
+  <!--Delete-->
+  <div class="modal fade" id="deleteFilesInfo" tabindex="-1" aria-labelledby="deleteFilesInfoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger">
+          <h5 class="modal-title text-white" id="exampleModalLabel"><b>Delete User</b></h5>
+        </div>
+        <div class="modal-body">
+            <div class="col-md-12">
+              ¿Do you want to delete the files with User id: <strong>{{idU}}</strong> ? 
+            </div>
+            <button type="submit" class="btn btn-outline-danger" (click)="deleteFilesInfo()">Delete</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div> 

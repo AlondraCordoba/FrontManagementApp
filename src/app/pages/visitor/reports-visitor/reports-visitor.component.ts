@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import * as pdfMake from "pdfmake/build/pdfmake";
-import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import { VacancieModel } from 'src/app/models/vacancie.model';
 import { VacancieServiceService } from 'src/app/services/vacancieService/vacancie-service.service';
-import jsPDF from 'jspdf';
+// import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { UserServiceService } from 'src/app/services/userService/user-service.service';
 import { UserModel } from 'src/app/models/user.model';
 
-(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
+declare var jsPDF: any;
 
 @Component({
   selector: 'app-reports-visitor',
