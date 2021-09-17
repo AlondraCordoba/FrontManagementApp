@@ -31,10 +31,10 @@ export class InfoFilesComponent implements OnInit {
   today: number = Date.now();
   namePersonalFileCV: String = "Personal CV";
   nameArkusFileCV: String = "Arkus CV";
-  nameInterviewFile: String = "Interview Report CV";    
+  nameInterviewFile: String = "Interview Report";    
   namePersonalFileCVEdit: String = "Personal CV";
   nameArkusFileCVEdit: String = "Arkus CV";
-  nameInterviewFileEdit: String = "Interview Report CV";  
+  nameInterviewFileEdit: String = "Interview Report";  
   fileNameP: any;
   fileNameA: any;
   fileNameI: any;
