@@ -29,8 +29,8 @@ export class FilesServiceService {
     return this.http.get<FilesModel[]>(`${this.url}/files`);
   }
 
-  searchFiles(id: number): Observable<any>{
-    return this.http.get<any>(`${this.url}/files/${id}`);
+  searchFiles(idUser: number): Observable<any>{
+    return this.http.get<any>(`${this.url}/users/${idUser}/files`);
   }
  
   postFiles(idUser: number, filesModel: FilesModel): Observable<any>{

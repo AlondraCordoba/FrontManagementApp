@@ -31,7 +31,10 @@ export class InfoFilesComponent implements OnInit {
   today: number = Date.now();
   namePersonalFileCV: String = "Personal CV";
   nameArkusFileCV: String = "Arkus CV";
-  nameInterviewFile: String = "Interview Report CV";  
+  nameInterviewFile: String = "Interview Report CV";    
+  namePersonalFileCVEdit: String = "Personal CV";
+  nameArkusFileCVEdit: String = "Arkus CV";
+  nameInterviewFileEdit: String = "Interview Report CV";  
   fileNameP: any;
   fileNameA: any;
   fileNameI: any;
@@ -90,7 +93,7 @@ export class InfoFilesComponent implements OnInit {
     return this.fGValidEdit.controls;
   } 
 
-  getId (idFiles?: number){
+  getId(idFiles?: number){
     this.id = idFiles;
     this.searchFiles();
   }
@@ -146,6 +149,32 @@ export class InfoFilesComponent implements OnInit {
     }
   }
 
+  selectFilePCVEdit(event: any){
+    if(event.target.files.length > 0){
+      let file = event.target.files[0];
+      this.fGValidEdit.controls.personal_cv_file.setValue(file, {emitModelToViewChange: false});
+    }else{
+      console.log("Action aborted")
+    }
+  }
+
+  selectFileACVEdit(event: any){
+    if(event.target.files.length > 0){
+      let file = event.target.files[0];
+      this.fGValidEdit.controls.arkus_cv_file.setValue(file, {emitModelToViewChange: false});
+    }else{
+      console.log("Action aborted")
+    }
+  }
+
+  selectFileIREdit(event: any){
+    if(event.target.files.length > 0){
+      let file = event.target.files[0];
+      this.fGValidEdit.controls.interview_report_file.setValue(file, {emitModelToViewChange: false});
+    }else{
+      console.log("Action aborted")
+    }
+  }
   uploadPersonalCV(){
     let formData = new FormData();
     formData.append('file', this.fGValid.controls.personal_cv_file.value);
@@ -179,6 +208,45 @@ export class InfoFilesComponent implements OnInit {
       (data) => {
         this.nameInterviewFile = data.filename;
         this.fGValid.controls.interview_report.setValue(data.filename);
+      }, (err) =>{
+        alert("Error uploading file")
+      }
+    )
+  }
+
+  uploadPersonalCVEdit(){
+    let formData = new FormData();
+    formData.append('file', this.fGValidEdit.controls.personal_cv_file.value);
+    this.infoFilesService.uploadPersonalCv(formData).subscribe(
+      (data) => {
+        this.namePersonalFileCVEdit = data.filename;
+        this.fGValidEdit.controls.personal_cv.setValue(data.filename);
+      }, (err) =>{
+        alert("Error uploading file")
+      }
+    )
+  }
+
+  uploadArkusCVEdit(){
+    let formData = new FormData();
+    formData.append('file', this.fGValidEdit.controls.arkus_cv_file.value);
+    this.infoFilesService.uploadArkusCv(formData).subscribe(
+      (data) => {
+        this.nameArkusFileCVEdit = data.filename;
+        this.fGValidEdit.controls.arkus_cv.setValue(data.filename);
+      }, (err) =>{
+        alert("Error uploading file")
+      }
+    )
+  }
+
+  uploadInterviewReportEdit(){
+    let formData = new FormData();
+    formData.append('file', this.fGValidEdit.controls.interview_report_file.value);
+    this.infoFilesService.uploadInterviewReport(formData).subscribe(
+      (data) => {
+        this.nameInterviewFileEdit = data.filename;
+        this.fGValidEdit.controls.interview_report.setValue(data.filename);
       }, (err) =>{
         alert("Error uploading file")
       }
@@ -222,12 +290,15 @@ export class InfoFilesComponent implements OnInit {
 
   getFilePersonal(filesNameP?: string){
     this.fileNameP = filesNameP;
+    this.downloadFileP();
   }  
   getFileArkus(filesNameA?: string){
     this.fileNameA = filesNameA;
+    this.downloadFileA();
   }  
   getFileInterviewR(filesNameI?: string){
     this.fileNameI = filesNameI;
+    this.downloadFileA();
   }
 
   returnBlob(res: any): Blob {

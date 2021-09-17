@@ -92,7 +92,7 @@
 			<tbody>
 				<tr *ngFor="let files of userFilesList">
 					<td class="text-center">{{files.user_id}} <br>
-						<button type="button" class="btn btn-outline-warning rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#editFilesInfo" ((click)="getId(files.id)"><i class="fas fa-edit"></i></button> 
+						<button type="button" class="btn btn-outline-warning rounded-circle" style="margin-right: 5%" data-bs-toggle="modal" data-bs-target="#editFilesInfo" (click)="getId(files.user_id)"><i class="fas fa-edit"></i></button> 
                          <button type="button" class="btn btn-outline-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteFilesInfo" (click)="getUserId(files.user_id)"><i class="fas fa-trash-alt"></i></button>
 					</td>
 					<td class="text-center">
@@ -101,11 +101,11 @@
 					</td>
 					<td class="text-center">
 						<small>{{files.arkus_cv}}</small> <br>
-						<button type="button" class="btn btn-outline-success" style="margin-right: 5%; margin-bottom: 5%; margin-top: 2%;" (click)="getFilePersonal(files.arkus_cv)"><i class="fas fa-download"></i></button>
+						<button type="button" class="btn btn-outline-success" style="margin-right: 5%; margin-bottom: 5%; margin-top: 2%;" (click)="getFileArkus(files.arkus_cv)"><i class="fas fa-download"></i></button>
 					</td>
 					<td class="text-center">
 						<small>{{files.interview_report}}</small> <br>
-						<button type="button" class="btn btn-outline-success" style="margin-right: 5%; margin-bottom: 5%; margin-top: 2%;" (click)="getFilePersonal(files.interview_report)"><i class="fas fa-download"></i></button>
+						<button type="button" class="btn btn-outline-success" style="margin-right: 5%; margin-bottom: 5%; margin-top: 2%;" (click)="getFileInterviewR(files.interview_report)"><i class="fas fa-download"></i></button>
 					</td>		  
 				</tr>  
 			</tbody>
@@ -131,30 +131,30 @@
 				<label for="user_id" class="form-label">User Id</label>
 				<input type="number" class="form-control" id="user_id" formControlName="user_id">
 			  </div>
-			<div class="col-md-12">
-				<p id="personal_cv"> {{namePersonalFileCV}} </p>
-				<input type="text" class="form-control" id="id" formControlName="personal_cv">
+			  <div class="col-md-12">
+				<input type="text" class="form-control" id="´personal_cv" formControlName="personal_cv">
+				<p id="personal_cv"> {{namePersonalFileCVEdit}} </p>
 			</div>
 			<div class="col-md-12">
-				<input class="form-control-sm" type="file" id="personal_cv_file" (change)="selectFilePCV($event)" formControlName="personal_cv_file">
-				<button type="button" class="btn btn-outline-dark">Update</button>
+			  <input class="form-control-sm" type="file" id="personal_cv_file" (change)="selectFilePCVEdit($event)" formControlName="personal_cv_file">
+			  <button type="button" class="btn btn-outline-dark" (click)="uploadPersonalCVEdit()">Upload</button>
 			</div>
 			<div class="col-md-12">
-				<p id="arkus_cv"> {{nameArkusFileCV}} </p>
-				<input type="text" class="form-control" id="id" formControlName="arkus_cv">
-			</div>
+				<input type="text" class="form-control" id="arkus_cv" formControlName="arkus_cv">
+			  <p id="arkus_cv"> {{nameArkusFileCVEdit}} </p>
+		  </div>
+		  <div class="col-md-12">
+			<input class="form-control-sm" type="file" id="arkus_cv_file" (change)="selectFileACVEdit($event)" formControlName="arkus_cv_file">
+			<button type="button" class="btn btn-outline-dark" (click)="uploadArkusCVEdit()">Upload</button>
+		  </div>
 			<div class="col-md-12">
-			<input class="form-control-sm" type="file" id="arkus_cv_file" formControlName="arkus_cv_file">
-			<button type="button" class="btn btn-outline-dark" (change)="selectFileACV($event)">Update</button>
-			</div>
-			<div class="col-md-12">
-				<p id="interview_report"> {{nameInterviewFile}} </p>
-				<input type="text" class="form-control" id="id" formControlName="interview_report"  (change)="selectFileACV($event)">
-			</div>
-			<div class="col-md-12">
-			<input class="form-control-sm" type="file" id="interview_report_file" (change)="selectFileIR($event)" formControlName="interview_report_file" >
-			<button type="button" class="btn btn-outline-dark">Update</button>
-			</div>
+				<input type="text" class="form-control" id="interview_report" formControlName="interview_report">
+			  <p id="interview_report"> {{nameInterviewFileEdit}} </p>
+		  </div>
+		  <div class="col-md-12">
+			<input class="form-control-sm" type="file" id="interview_report_file" (change)="selectFileIREdit($event)" formControlName="interview_report_file" >
+			<button type="button" class="btn btn-outline-dark" (click)="uploadInterviewReportEdit()">Upload</button>
+		  </div>
             <button type="submit" class="btn btn-outline-warning">Save changes</button>          
           </form>
         </div>
