@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   password: string = '';
 
   fGValid: FormGroup = new FormGroup({});
-  
+
   constructor( private router: Router, private fb: FormBuilder, private coordService: CoordinatorServiceService) { }
 
   buildForm(){
@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
     this.buildForm();
   }
 
-  goHome(){ this.router.navigate(['/home']);}
 
   get obtainFGValidator(){
     return this.fGValid.controls;
@@ -52,14 +51,14 @@ export class LoginComponent implements OnInit {
         (data: CoordinatorModel) =>{
           alert("Correct Data")
           this.coordService.storeDataSessioninLocal(data);
-          this.router.navigate(['/coordinator/homeCoordinator']);
+          // this.router.navigate(['/coordinator/homeCoordinator']);
         },
         (error) =>{
-          alert("Invalid Data" + error)
+          // alert("Invalid Data" + error)
+          alert("Invalid Data")
         }
       )
     }
   }
 
 }
- 

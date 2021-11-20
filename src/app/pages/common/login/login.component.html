@@ -6,7 +6,7 @@
         <div class=" login p-3">
             <div class="logo text-center mb-4">
                 <img src="../../../../assets/images/mindIcon.png"  class="mindIcon" alt="">
-              </div> 
+              </div>
             <form class="mr-3 ml-3" [formGroup]="fGValid" (ngSubmit)="validateCredentials()">
                 <div class="input-group flex-nowrap mb-3">
                   <span class="input-group-text mb-2 active" id="addon-wrapping"><i class="fas fa-user"></i></span>
@@ -16,7 +16,7 @@
                 <div *ngIf="obtainFGValidator.email.errors && (obtainFGValidator.email.dirty || obtainFGValidator.email.touched)" class="validations">
                   <strong *ngIf="obtainFGValidator.email.errors.required" class="mt-0">This field is required</strong>
                   <strong *ngIf="obtainFGValidator.email.errors.email">Must comply with an email format</strong>
-                </div>  
+                </div>
 
                 <div class="input-group flex-nowrap mb-3">
                     <span class="input-group-text mb-2" id="addon-wrapping"><i class="fas fa-lock"></i></span>
@@ -27,14 +27,14 @@
                     <strong *ngIf="obtainFGValidator.password.errors.required">This field is required</strong>
                     <strong *ngIf="obtainFGValidator.password.errors.minlength">Must be at least 8 characters long</strong>
                     <strong *ngIf="obtainFGValidator.password.errors.maxLength">Must be maximum 16 characters</strong>
-                  </div> 
+                  </div>
 
                   <div class="text-center mt-3">
                     <button [disabled]="obtainFGValidator.email.errors || obtainFGValidator.password.errors" class="btn btn-danger" type="submit">Log in</button>
-                  </div>  
+                  </div>
                   <div class="text-center mt-3">
-                    <button class="btn btnHome" type="button" (click)="goHome()">Home</button>
-                  </div>      
+                    <button class="btn btnHome" type="button">Home</button>
+                  </div>
               </form>
         </div>
     </div>
